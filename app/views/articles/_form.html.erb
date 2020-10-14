@@ -2,19 +2,19 @@
   <div class="row justify-content-center">
     <div class="col-10">
 
-      <%= render  "shared/errors" %>
+      <%= render  "shared/errors", obj: @article %>
 
       <%= form_with(model: @article, class: "shadow p-3 rounded", id: "form", local: true) do |f| %>
 
       <div class="form-group col">
-        <%= f.label :title, class: "text-light text-uppercase" %>
+        <%= f.label :title, class: "text-light" %>
         <%= f.text_field :title, 
           class: "form-control shadow rounded",
           placeholder: "Title of Article" %>
       </div>
 
       <div class="form-group col">
-        <%= f.label :description, class: "text-light text-uppercase" %>
+        <%= f.label :description, class: "text-light" %>
         <%= f.text_area :description, 
           rows: 10, 
           class: "form-control shadow rounded",
