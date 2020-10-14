@@ -3,8 +3,11 @@
   <div class="row justify-content-md-center">
     <div class="col-8 mt-4">
       <div class="card text-center shadow rounded">
-        <div class="card-header font-italic">
-          by <%= @article.user.username %>
+        <div class="card-header">
+          <div class="row justify-content-center align-items-center">
+            <%= link_to gravatar_for(@article.user, size: 32), @article.user, class: "mr-2" %>
+            <%= link_to  @article.user.username , @article.user, class: "text-italic ml-2" %>
+          </div>
         </div>
         <div class="card-body">
           <div class="card-text text-left"><%= simple_format(@article.description) %></div>
@@ -20,7 +23,7 @@
         <div class="card-footer text-muted">
           Created <%= time_ago_in_words(@article.created_at) %> ago
           <% if @article.created_at != @article.updated_at %>
-            | Edited <%= distance_of_time_in_words_to_now(@article.updated_at) %> ago
+          | Edited <%= distance_of_time_in_words_to_now(@article.updated_at) %> ago
           <% end %>
         </div>
       </div>
