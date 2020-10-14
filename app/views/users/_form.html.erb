@@ -28,7 +28,7 @@
       </div>
 
       <div class="form-group row justify-content-center">
-        <%= f.submit "Sign up", class: "btn btn-success mr-1 shadow rounded" %>
+        <%= f.submit (@user.new_record? ? "Sign Up" : "Update Profile"), class: "btn btn-success mr-1 shadow rounded" %>
       </div>
       <% end %>
     </div>
