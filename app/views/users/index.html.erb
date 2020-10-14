@@ -1,9 +1,11 @@
 <h1 class="text-center mt-4 mb-4">Users</h1>
 
+<%= render  "shared/pagination", obj: @users %>
+
 <div class="container mb-4">
   <% @users.each do |user| %>
-  <div class="row justify-content-md-center mt-5">
-    <div class="col-8">
+  <div class="row justify-content-md-center mb-5">
+    <div class="col-6">
       <div class="card text-center shadow rounded">
         <div class="card-header font-italic">
           <%= link_to user.username, user %>
@@ -28,3 +30,5 @@
   </div>
   <% end %>
 </div>
+
+<%= render  "shared/pagination", obj: @users %>
