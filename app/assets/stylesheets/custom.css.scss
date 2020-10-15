@@ -20,13 +20,31 @@
 #home-container {
   margin-top: 40px;
 }
-
 .jumbotron {
+  padding: 0px;
+  position: relative;
+}
+
+.jumbotron-background {
   background-image: asset-url('home-page.jpg');
-  background-position: center center;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 425px;
+  filter: blur(4px);
+  -webkit-filter: blur(4px);
+}
+
+.jumbotron-text {
+  color: #3f474e;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  text-align: center;
+  padding: 15px;
 }
 
 html,

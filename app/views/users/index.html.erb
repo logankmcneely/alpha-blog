@@ -18,9 +18,11 @@
           <%= link_to "View profile", 
             user_path(user), 
             class: "btn btn-primary" %>
+          <% if logged_in? && current_user == user %>
           <%= link_to "Edit profile", 
             edit_user_path(user), 
             class: "btn btn-warning" %>
+          <% end %>
         </div>
         <div class="card-footer text-muted">
           <small>Joined <%= time_ago_in_words(user.created_at) %> ago</small>
