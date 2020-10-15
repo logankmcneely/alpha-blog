@@ -1,3 +1,6 @@
+# These are helper functions connected to the views. Will not work in other
+# places like controllers, or models
+
 module ApplicationHelper
 
   def gravatar_for(user, options = { size: 80 })
