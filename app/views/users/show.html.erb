@@ -1,4 +1,4 @@
-
+<%= puts @user %>
 <h1 class="text-center mt-4 mb-4"><%= @user.username%></h1>
 
 <%= gravatar_for @user, size: 200 %>
@@ -8,9 +8,7 @@
 
 <h3 class="text-center mt-4 mb-4">Articles</h3>
 
-<div class="flickr_pagination mb-5">
-  <%= will_paginate @articles, :container => false %>
-</div>
+<%= render 'shared/pagination', obj: @articles  %>
 
 <%= render 'articles/article' %>
 
