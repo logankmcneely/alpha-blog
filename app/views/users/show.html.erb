@@ -16,9 +16,7 @@
 <% if @user.articles.count > 0 %>
   <%= render 'shared/pagination', obj: @articles  %>
   <%= render 'articles/article' %>
-  <div class="flickr_pagination mb-5">
-    <%= will_paginate @articles, :container => false %>
-  </div>
+  <%= render 'shared/pagination', obj: @articles  %>
 <% else %>
   <h5 class="text-center font-italic font-weight-light mt-3">This user has no articles at this time.</h5>
 <% end %>

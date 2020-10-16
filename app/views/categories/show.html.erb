@@ -1,1 +1,19 @@
 <h1 class="text-center mt-4 mb-4">Category: <%= @category.name %></h1>
+
+<% if logged_in? && current_user.admin? %>
+  <div class="text-center mt-4">
+    <%= link_to  "Edit category", 
+      edit_category_path(@category), 
+      class: "btn btn-warning" %>
+  </div>
+<% end %>
+
+<hr class="my-4 mr-5 ml-5">
+
+<% if @category.articles.count > 0 %>
+  <%= render 'shared/pagination', obj: @articles  %>
+  <%= render 'articles/article' %>
+  <%= render 'shared/pagination', obj: @articles  %>
+<% else %>
+  <h5 class="text-center font-italic font-weight-light mt-3">This user has no articles at this time.</h5>
+<% end %>

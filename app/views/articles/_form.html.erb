@@ -22,6 +22,12 @@
       </div>
 
       <div class="form-group col">
+        <%= f.label "Category", class: "text-light" %>
+          <%= f.collection_select(:category_ids, Category.all, :id, :name,
+            { prompt: false }, { multiple: true, class: "custom-select shadow rounded" } ) %>
+      </div>
+
+      <div class="form-group col">
         <%= f.submit class: "btn btn-success mr-1 shadow rounded" %>
         <%= link_to "Cancel", articles_path, class: "btn btn-danger ml-1 shadow rounded" %>
       </div>

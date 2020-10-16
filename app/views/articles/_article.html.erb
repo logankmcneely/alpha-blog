@@ -5,6 +5,11 @@
       <div class="card text-center shadow rounded">
         <div class="card-header font-italic">
           <%= link_to "by #{article.user.username}", article.user %>
+          <% if article.categories.any? %>
+            <div class="row justify-content-center align-items-center mt-2">
+              <%= render article.categories %>
+            </div>
+          <% end %>
         </div>
         <div class="card-body">
           <h5 class="card-title">

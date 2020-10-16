@@ -69,6 +69,16 @@ body {
   margin-bottom: 0;
 }
 
+#category-badge {
+  background-color: #343A40;
+}
+
+#category-badge a {
+  color: white;
+  text-decoration: none;
+}
+
+
 /* Pagination Styling */
 .flickr_pagination {
   text-align: center;

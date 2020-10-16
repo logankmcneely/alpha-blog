@@ -12,6 +12,7 @@
             <h5 class="card-title" id="category-title">
               <%= link_to category.name, category %>
             </h5>
+            <p class="mb-0"><%= pluralize(category.articles.count, "article") %></p>
           </div>
           <div class="card-footer text-muted">
             Created <%= time_ago_in_words(category.created_at) %> ago
