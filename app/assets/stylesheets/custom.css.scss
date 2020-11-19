@@ -34,9 +34,9 @@ body {
     }
   }
 
-  input[type="submit"]:hover {
+  input[type="submit"]:hover, a:hover {
     border-color: none !important;
-    color: 5c5f58;
+    color: #5c5f58;
   }
 }
 
