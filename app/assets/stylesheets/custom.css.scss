@@ -12,6 +12,7 @@ body {
 
 #sticky-footer {
   flex-shrink: none;
+
   a:hover {
     text-decoration: none;
     color: #b73225;
@@ -19,8 +20,25 @@ body {
 }
 
 #form {
-  background-color: #34403a;
+  padding: 64px 32px;
+
+  h1 {
+    color: #004e7c;
+    letter-spacing: -1px;
+  }
+
+  .form-control {
+    &:hover {
+      border-color: #004e7c;
+    }
+  }
+
+  input[type="submit"]:hover {
+    border-color: none !important;
+    color: 5c5f58;
+  }
 }
+
 
 #category-title {
   margin-bottom: 0;

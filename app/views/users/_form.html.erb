@@ -4,31 +4,35 @@
 
       <%= render  "shared/errors", obj: @user %>
 
-      <%= form_with(model: @user, class: "shadow p-3 rounded", id: "form", local: true) do |f| %>
+      <%= form_with(model: @user, class: "bg-color-light shadow-lg rounded", id: "form", local: true) do |f| %>
 
-      <div class="form-group col">
-        <%= f.label :username, class: "text-light" %>
+      <h1 class="text-center"><%= request.path == signup_path ? "Sign Up" : "Edit Profile" %></h1>
+
+
+      <div class="form-group col mt-4">
+        <%= f.label :username, class: "font-color-dark-red" %>
         <%= f.text_field :username, 
-          class: "form-control shadow rounded",
+          class: "form-control shadow-sm rounded",
           placeholder: "Enter a username" %>
       </div>
 
       <div class="form-group col">
-        <%= f.label :email, class: "text-light" %>
+        <%= f.label :email, class: "font-color-dark-red" %>
         <%= f.email_field :email, 
-          class: "form-control shadow rounded",
+          class: "form-control shadow-sm rounded",
           placeholder: "Enter your email" %>
       </div>
 
-      <div class="form-group col">
-        <%= f.label :password, class: "text-light" %>
+      <% placeholder = request.path == signup_path ? "Choose a password" : "Enter your password" %>
+      <div class="form-group col mb-5">
+        <%= f.label :password, class: "font-color-dark-red" %>
         <%= f.password_field :password, 
-          class: "form-control shadow rounded",
-          placeholder: "Choose a password" %>
+          class: "form-control shadow-sm rounded",
+          placeholder: placeholder %>
       </div>
 
       <div class="form-group row justify-content-center">
-        <%= f.submit (@user.new_record? ? "Sign Up" : "Update Profile"), class: "btn btn-success mr-1 shadow rounded" %>
+        <%= f.submit (@user.new_record? ? "Sign Up" : "Update Profile"), class: "btn btn-lg bg-color-blue font-color-light shadow-sm rounded" %>
       </div>
       <% end %>
     </div>
