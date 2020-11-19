@@ -5,19 +5,6 @@ body {
   height: 100%;
 }
 
-.nav-link {
-  color: white !important;
-}
-
-#logo {
-  color: #fff;
-  float: left;
-  font-size: 1.7em;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  font-weight: bold;
-}
-
 #home-container {
   margin-top: 40px;
 }
@@ -52,7 +39,7 @@ body {
 
 #page-content {
   flex: 1 0 auto;
-  background-color: lightgray;
+  background-color: #dce1e3;
 }
 
 #sticky-footer {

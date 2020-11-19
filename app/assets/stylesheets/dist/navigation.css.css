@@ -1,0 +1,37 @@
+.navbar-nav .nav-item.active .nav-link,
+.navbar-nav .nav-item:hover .nav-link {
+  color: #591c0b !important;
+}
+
+.nav-link {
+  color: #b73225 !important;
+  letter-spacing: 1px;
+}
+
+#logo {
+  color: #b73225;
+  float: left;
+  font-size: 1.7em;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+.dropdown-item {
+  color: #b73225 !important;
+}
+.dropdown-item:hover, .dropdown-item:focus {
+  background-color: #dce1e3 !important;
+  color: #591c0b !important;
+}
+
+.navbar-toggler {
+  font-size: 28px;
+  border-color: #b73225 !important;
+}
+.navbar-toggler:hover, .navbar-toggler:focus, .navbar-toggler:active {
+  border-color: #591c0b !important;
+}
+.navbar-toggler:hover i, .navbar-toggler:focus i, .navbar-toggler:active i {
+  color: #591c0b !important;
+}

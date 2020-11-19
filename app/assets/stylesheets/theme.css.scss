@@ -1,45 +1,45 @@
-$color-green: #5e8c61;
-$color-dark-green: #4e6151;
-$color-dark: #3b322c;
-$color-blue: #92dce5;
-$color-yellow-green: #d2f898;
+$color-red: #b73225;
+$color-blue: #004e7c;
+$color-dark-red: #591c0b;
+$color-dark: #5c5f58;
+$color-light: #dce1e3;
 
-.font-color-green {
-  color: $color-green;
-}
-
-.font-color-dark-green {
-  color: $color-dark-green;
-}
-
-.font-color-dark {
-  color: $color-dark;
+.font-color-red {
+  color: $color-red;
 }
 
 .font-color-blue {
   color: $color-blue;
 }
 
-.font-color-yellow-green {
-  color: $color-yellow-green;
+.font-color-dark {
+  color: $color-dark;
 }
 
-.bg-color-green {
-  background-color: $color-green;
+.font-color-light {
+  color: $color-light;
 }
 
-.bg-color-dark-green {
-  background-color: $color-dark-green;
+.font-color-dark-red {
+  color: $color-dark-red;
 }
 
-.bg-color-dark {
-  background-color: $color-dark;
+.bg-color-red {
+  background-color: $color-red;
 }
 
 .bg-color-blue {
   background-color: $color-blue;
 }
 
-.bg-color-yellow-green {
-  background-color: $color-yellow-green;
+.bg-color-dark {
+  background-color: $color-dark;
+}
+
+.bg-color-light {
+  background-color: $color-light;
+}
+
+.bg-color-dark-red {
+  background-color: $color-dark-red;
 }
