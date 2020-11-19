@@ -1,5 +1,13 @@
-<footer id="sticky-footer" class="py-4 bg-color-light">
-  <div class="container text-center font-color-red">
-    <small><em>Copyright &copy; <%= link_to  "Logan McNeely", "#", class:"font-color-red" %></em></small>
+<footer id="sticky-footer" class="py-3 bg-color-light">
+  <div class="container text-center">
+    <%= link_to  "https://github.com/logankmcneely" do %>
+      <%= fa_icon "github 2x" %>
+    <% end %>&nbsp;
+    <%= link_to  "https://www.linkedin.com/in/loganmcneely/" do %>
+      <%= fa_icon "linkedin 2x" %>
+    <% end %>&nbsp;
+    <%= link_to  "mailto: logan.k.mcneely@gmail.com" do %>
+      <%= fa_icon "envelope 2x" %>
+    <% end %>
   </div>
 </footer>

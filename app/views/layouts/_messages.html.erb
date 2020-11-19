@@ -1,12 +1,12 @@
-<div class="container col-6 mt-2">
-  <% flash.each do |name, msg| %>
-  <% alert_type = name == "notice" ? "alert-success" : "alert-danger" %>
-  <% puts "NAME #{name}" %>
-  <div class="alert <%= alert_type %> alert-dismissible fade show" role="alert">
-    <%= msg %>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
+<% flash.each do |name, msg| %>
+  <div class="container col-6 mt-2">
+    <% alert_type = name == "notice" ? "alert-success" : "alert-danger" %>
+    <% puts "NAME #{name}" %>
+    <div class="alert <%= alert_type %> alert-dismissible fade show" role="alert">
+      <%= msg %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
   </div>
-  <% end %>
-</div>
+<% end %>

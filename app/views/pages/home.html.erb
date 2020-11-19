@@ -1,12 +1,14 @@
-<div class="container" id="home-container">
-  <div class="jumbotron text-center shadow rounded">
-    <div class="jumbotron-background"></div>
+<% content_for :body_class, "home-container" %>
+
+<div class="container">
+  <div class="col-sm-12 col-lg-6 offset-lg-3 col-md-10 offset-md-1 jumbotron text-center rounded bg-color-light font-color-dark-red shadow-lg rounded">
     <div class="jumbotron-text">
-      <h1 class="display-4 font-weight-normal">Welcome to Alpha Blog</h1>
-      <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+      <h1>Alpha Blog</h1>
       <hr class="my-4">
-      <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-      <%= link_to  "Sign up!", signup_path , class: "btn btn-success btn-lg"  %>
+      <p class="lead">This is a simple blogging application that allows you to read and write blogs, sort by categoires, and check out other bloggers.</p>
+      <hr class="my-4">
+      <p>This was created using Rails 6, Bootstrap 4, BCrypt for user authentication.</p>
+      <%= link_to  "Get Started!", signup_path , class: "btn btn-lg bg-color-blue font-color-light"  %>
     </div>
   </div>
 </div>

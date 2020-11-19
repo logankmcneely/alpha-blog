@@ -1,0 +1,23 @@
+.home-container {
+  background-image: asset-url("background1.jpg") !important;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jumbotron {
+  margin-bottom: 0;
+}
+.jumbotron h1 {
+  letter-spacing: -1px;
+  color: #b73225;
+  text-transform: uppercase;
+  font-weight: bold !important;
+}
+.jumbotron a:hover {
+  background-color: #b73225;
+  color: #dce1e3;
+}
