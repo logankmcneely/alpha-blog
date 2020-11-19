@@ -53,7 +53,21 @@
 <div class="row justify-content-center">
   <div class="col-sm-11 col-md-8">
     <% @articles.each do |article| %>
-      <div class="bg-color-light-shade rounded shadow-sm mb-4 mt-4 pl-md-5 pl-sm-1 pr-md-5 pl-sm-1 pt-3 pb-3">
+      <div class="article bg-color-light-shade rounded shadow-sm mb-4 mt-4 pl-md-5 pl-sm-1 pr-md-5 pl-sm-1 pt-3 pb-3">
+        <% if logged_in? && (current_user == article.user || current_user.admin?) %>
+          <%= link_to "#", { class: "user-access-dropdown btn dropdown-toggle dropdown-toggle-split options-dropdown", id:"dropdownMenuLink", role:"button", data: { toggle:"dropdown"}, aria: { haspopup:"true", expanded:"false"}}  do %>
+            <%= fa_icon "cog" %>
+          <% end %>
+          <div class="dropdown-menu dropdown-menu-right bg-color-light">
+              <%= link_to edit_article_path(article), class: "dropdown-item" do %>
+                <%= fa_icon "edit" %>&nbsp;Edit
+              <% end %>
+              <%= link_to article_path(article), method: :delete, class: "dropdown-item",
+                data: { confirm: "Are you sure you want to delete the article '#{article.title}'?" } do %>
+                <%= fa_icon "trash" %>&nbsp;Delete
+              <% end %>
+          </div>
+        <% end %>
         <div class="row">
           <div class="col">
             <%= link_to  article_path(article), class: "font-color-dark-red link" do %>
@@ -83,23 +97,9 @@
           <% end %>
         <div class="row mt-4 mb-4">
           <div class="col">
-            <p class="pl-2 pr-2 article-desciption"><%= article.description.truncate(300) %></p>
+            <p class="pl-4 pr-4 article-desciption"><%= article.description.truncate(300) %></p>
           </div>
         </div>
-        <% if logged_in? && (current_user == article.user || current_user.admin?) %>
-          <%= link_to "#", { class: "user-access-dropdown btn dropdown-toggle dropdown-toggle-split options-dropdown", id:"dropdownMenuLink", role:"button", data: { toggle:"dropdown"}, aria: { haspopup:"true", expanded:"false"}}  do %>
-            <%= fa_icon "cog" %>
-          <% end %>
-          <div class="dropdown-menu dropdown-menu-right bg-color-light">
-              <%= link_to edit_article_path(article), class: "dropdown-item" do %>
-                <%= fa_icon "edit" %>&nbsp;Edit
-              <% end %>
-              <%= link_to article_path(article), method: :delete, class: "dropdown-item",
-                data: { confirm: "Are you sure you want to delete the article '#{article.title}'?" } do %>
-                <%= fa_icon "trash" %>&nbsp;Delete
-              <% end %>
-          </div>
-        <% end %>
       </div>
     <% end %>
   </div>
