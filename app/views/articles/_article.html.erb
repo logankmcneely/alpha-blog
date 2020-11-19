@@ -1,4 +1,6 @@
-<div class="container">
+<%
+=begin%>
+ <div class="container">
   <% @articles.each do |article| %>
   <div class="row justify-content-md-center" id="card-index">
     <div class="col-8 mb-5">
@@ -42,4 +44,46 @@
     </div>
   </div>
   <% end %>
+</div> 
+<%
+=end%>
+
+<% content_for :body_class, "articles-container" %>
+
+<div class="row justify-content-center">
+  <div class="col-sm-11 col-md-8">
+    <% @articles.each do |article| %>
+      <div class="bg-color-light-shade rounded shadow-sm mb-4 mt-4 pl-md-5 pl-sm-1 pr-md-5 pl-sm-1 pt-3 pb-3">
+        <div class="row">
+          <div class="col">
+            <%= link_to  article_path(article), class: "font-color-dark-red link" do %>
+              <h3 class="card-title text-center mb-2 mt-4"><%= article.title %></h5>
+            <% end %>
+          </div>
+        </div>
+        <div class="row mb-1">
+          <div class="col text-center card-subtitle">
+            <%= link_to article.user, class: "link" do %>
+              <i><%= article.user.username %></i>
+            <% end %>
+          </div>
+        </div>
+        <div class="row mb-2">
+          <div class="col text-center font-italic card-subtitle">
+            <small><%= article.created_at.strftime("%b %-d, %Y %l:%M %P")%></small>
+          </div>
+        </div>
+        <% if article.categories.any? %>
+            <div class="row justify-content-center align-items-center mb-2">
+              <%= render article.categories %>
+            </div>
+          <% end %>
+        <div class="row mt-4 mb-4">
+          <div class="col">
+            <p class="pl-1 pr-1 article-desciption"><%= article.description.truncate(300) %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

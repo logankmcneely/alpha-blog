@@ -41,15 +41,18 @@ body {
 }
 
 
-#category-title {
-  margin-bottom: 0;
+
+.category-badge {
+  &:hover {
+    background-color: #591c0b;
+    color: #dce1e3;
+  }
 }
 
-#category-badge {
-  background-color: #343A40;
-}
-
-#category-badge a {
-  color: white;
-  text-decoration: none;
+.link {
+  color: #591c0b;
+  &:hover {
+    color: #b73225;
+    text-decoration: none;
+  }
 }

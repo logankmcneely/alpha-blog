@@ -3,6 +3,7 @@ $color-blue: #004e7c;
 $color-dark-red: #591c0b;
 $color-dark: #5c5f58;
 $color-light: #dce1e3;
+$color-light-shade: #dfe4e5;
 
 .font-color-red {
   color: $color-red;
@@ -38,6 +39,10 @@ $color-light: #dce1e3;
 
 .bg-color-light {
   background-color: $color-light;
+}
+
+.bg-color-light-shade {
+  background-color: $color-light-shade;
 }
 
 .bg-color-dark-red {
