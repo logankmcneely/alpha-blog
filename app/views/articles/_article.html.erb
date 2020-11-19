@@ -71,6 +71,9 @@
         <div class="row mb-2">
           <div class="col text-center font-italic card-subtitle">
             <small><%= article.created_at.strftime("%b %-d, %Y %l:%M %P")%></small>
+            <% if article.created_at != article.updated_at %>
+              <small>(updated <%= distance_of_time_in_words_to_now(article.updated_at)%> ago)</small>
+            <% end %>
           </div>
         </div>
         <% if article.categories.any? %>
@@ -80,9 +83,23 @@
           <% end %>
         <div class="row mt-4 mb-4">
           <div class="col">
-            <p class="pl-1 pr-1 article-desciption"><%= article.description.truncate(300) %></p>
+            <p class="pl-2 pr-2 article-desciption"><%= article.description.truncate(300) %></p>
           </div>
         </div>
+        <% if logged_in? && (current_user == article.user || current_user.admin?) %>
+          <%= link_to "#", { class: "user-access-dropdown btn dropdown-toggle dropdown-toggle-split options-dropdown", id:"dropdownMenuLink", role:"button", data: { toggle:"dropdown"}, aria: { haspopup:"true", expanded:"false"}}  do %>
+            <%= fa_icon "cog" %>
+          <% end %>
+          <div class="dropdown-menu dropdown-menu-right bg-color-light">
+              <%= link_to edit_article_path(article), class: "dropdown-item" do %>
+                <%= fa_icon "edit" %>&nbsp;Edit
+              <% end %>
+              <%= link_to article_path(article), method: :delete, class: "dropdown-item",
+                data: { confirm: "Are you sure you want to delete the article '#{article.title}'?" } do %>
+                <%= fa_icon "trash" %>&nbsp;Delete
+              <% end %>
+          </div>
+        <% end %>
       </div>
     <% end %>
   </div>
