@@ -5,7 +5,8 @@ class UsersController < ApplicationController
   before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def index
-    @users = User.paginate(page: params[:page], per_page: 5)
+    # Returns users in order of articles written (omits those with no articles)
+    @users = User.joins(:articles).group('users.id').order('count(articles.id) DESC').paginate(page: params[:page], per_page: 5)
   end
 
   def show

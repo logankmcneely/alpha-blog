@@ -11,4 +11,9 @@ class User < ApplicationRecord
     length: { maximum: 105 },
     format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i }
   has_secure_password
+
+  def self.get_categories(user_id)
+    Category.joins(:articles).group('categories.name').where(articles:{ user_id: user_id })
+  end
+
 end
