@@ -1,7 +1,7 @@
 <% content_for :body_class, "articles-container" %>
 
 <h1 class="display-4 text-center mt-5 mb-5 font-color-dark-red">Categories</h1>
-<hr class="col-sm-9 col-md-10 col-lg-10 bg-color-dark-red mb-5">
+<hr class="col-sm-9 col-md-10 col-lg-10 bg-color-dark-red mb-3">
 <%= render 'shared/pagination', obj: @categories %>
 <div class="my-4"></div>
 
@@ -9,7 +9,7 @@
   <div class="row justify-content-center">
     <% @categories.each do |category| %>
       <div class="col-sm-9 col-lg-6">
-        <div class="categories bg-color-light-shade rounded shadow-sm mb-4 mt-4 pl-md-5 pl-sm-1 pr-md-5 pl-sm-1 pt-3 pb-3">
+        <div class="categories bg-color-light-shade rounded shadow-sm mb-4 pl-md-5 pl-sm-1 pr-md-5 pl-sm-1 pt-3 pb-3">
           <% if logged_in? && current_user.admin? %>
             <%= link_to "#", { class: "category-access-dropdown btn btn-lg rounded dropdown-toggle dropdown-toggle-split options-dropdown", id:"dropdownMenuLink", role:"button", data: { toggle:"dropdown"}, aria: { haspopup:"true", expanded:"false"}}  do %>
               <%= fa_icon "ellipsis-v" %>

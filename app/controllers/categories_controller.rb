@@ -15,7 +15,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @articles = @category.articles.paginate(page: params[:page], per_page: 5)
+    @articles = @category.articles.order("created_at DESC").paginate(page: params[:page], per_page: 5)
   end
 
   def new

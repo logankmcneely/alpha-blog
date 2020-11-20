@@ -1,0 +1,10 @@
+.bloggers-access-dropdown {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+}
+
+.bloggers {
+  position: relative;
+  height: 190px;
+}
