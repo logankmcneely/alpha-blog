@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def index
     # Returns users in order of articles written (omits those with no articles)
-    @users = User.joins(:articles).group('users.id').order('count(articles.id) DESC').paginate(page: params[:page], per_page: 5)
+    @users = User.joins(:articles).group('users.id').order('count(articles.id) DESC').paginate(page: params[:page], per_page: 10)
   end
 
   def show

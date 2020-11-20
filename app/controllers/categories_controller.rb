@@ -4,7 +4,8 @@ class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update]
 
   def index
-    @categories = Category.paginate(page: params[:page], per_page: 5)
+    # Returns categories in order of articles written (omits those with no articles)
+    @categories = Category.joins(:articles).group('categories.name').order('count(articles.id) DESC').paginate(page: params[:page], per_page: 10)
   end
 
   def show
