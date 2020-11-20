@@ -16,7 +16,7 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Articles
           </a>
-          <div class="dropdown-menu bg-color-light" aria-labelledby="navbarDropdown">
+          <div class="dropdown-menu shadow-lg bg-color-light" aria-labelledby="navbarDropdown">
             <%= link_to  "View Articles", articles_path, class: "dropdown-item" %>
             <% if logged_in? %>
               <%= link_to  "Create Article", new_article_path, class: "dropdown-item" %>
@@ -28,7 +28,7 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Categories
           </a>
-          <div class="dropdown-menu bg-color-light" aria-labelledby="navbarDropdown">
+          <div class="dropdown-menu shadow-lg bg-color-light" aria-labelledby="navbarDropdown">
             <%= link_to  "View Categories", categories_path, class: "dropdown-item" %>
             <% if logged_in? && current_user.admin? %>
               <%= link_to  "Create Category", new_category_path, class: "dropdown-item" %>
@@ -43,7 +43,7 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= current_user.username %> <%= "(Admin)" if current_user.admin? %>
             </a>
-            <div class="dropdown-menu bg-color-light" aria-labelledby="navbarDropdown">
+            <div class="dropdown-menu shadow-lg bg-color-light" aria-labelledby="navbarDropdown">
               <%= link_to  "View Profile", current_user, class: "dropdown-item" %>
               <%= link_to  "Edit Profile", edit_user_path(current_user), class: "dropdown-item" %>
               <%= link_to  "Delete Profile", 

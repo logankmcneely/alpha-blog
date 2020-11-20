@@ -8,7 +8,7 @@
           <%= link_to "#", { class: "user-access-dropdown btn dropdown-toggle dropdown-toggle-split options-dropdown", id:"dropdownMenuLink", role:"button", data: { toggle:"dropdown"}, aria: { haspopup:"true", expanded:"false"}}  do %>
             <%= fa_icon "cog" %>
           <% end %>
-          <div class="dropdown-menu dropdown-menu-right bg-color-light">
+          <div class="dropdown-menu shadow-lg dropdown-menu-right bg-color-light">
               <%= link_to edit_article_path(article), class: "dropdown-item" do %>
                 <%= fa_icon "edit" %>&nbsp;Edit
               <% end %>
