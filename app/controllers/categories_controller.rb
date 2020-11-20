@@ -1,11 +1,17 @@
 class CategoriesController < ApplicationController
 
   before_action :require_admin, except: [:index, :show]
-  before_action :set_category, only: [:show, :edit, :update]
+  before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   def index
-    # Returns categories in order of articles written (omits those with no articles)
-    @categories = Category.joins(:articles).group('categories.name').order('count(articles.id) DESC').paginate(page: params[:page], per_page: 10)
+    # Returns all categories for admin and only categories with articles for users
+    if (logged_in? && current_user.admin?)
+      # Returns categoires in order of number of articles and includes those with no articles 
+      @categories = Category.left_outer_joins(:articles).group('categories.name').order('count(articles.id) DESC').paginate(page: params[:page], per_page: 10)
+    else
+      # Returns categories in order of articles written (omits those with no articles)
+      @categories = Category.joins(:articles).group('categories.name').order('count(articles.id) DESC').paginate(page: params[:page], per_page: 10)
+    end
   end
 
   def show
