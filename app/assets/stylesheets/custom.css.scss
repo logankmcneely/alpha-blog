@@ -57,8 +57,6 @@ body {
   }
 }
 
-// .admin-access-categories {
-//   position: absolute;
-//   top: 8px;
-//   right: 8px;
-// }
+.dropdown-toggle::after {
+  display: none;
+}

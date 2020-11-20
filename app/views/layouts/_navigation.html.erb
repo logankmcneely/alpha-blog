@@ -41,18 +41,24 @@
         <% if logged_in? %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= current_user.username %> <%= "(Admin)" if current_user.admin? %>
+              <%= current_user.username %> <%= "(Admin)" if current_user.admin? %>&nbsp;<%= fa_icon "caret-down" %>
             </a>
             <div class="dropdown-menu shadow-lg bg-color-light" aria-labelledby="navbarDropdown">
-              <%= link_to  "View Profile", current_user, class: "dropdown-item" %>
-              <%= link_to  "Edit Profile", edit_user_path(current_user), class: "dropdown-item" %>
-              <%= link_to  "Delete Profile", 
-                user_path(current_user), 
-                method: :delete, 
+              <%= link_to current_user, class: "dropdown-item" do %>
+                <%= fa_icon "user", class:"nav-icon" %>&nbsp;&nbsp;View Profile
+              <% end %>
+              <%= link_to edit_user_path(current_user), class: "dropdown-item" do %>
+                <%= fa_icon "edit", class:"nav-icon" %>&nbsp;&nbsp;Edit Profile
+              <% end %>
+              <%= link_to user_path(current_user), method: :delete, 
                 data: { confirm: "Are you sure you want to delete your profile?" },
-                class: "dropdown-item text-danger" %>
-              <div class="dropdown-divider"></div>
-              <%= link_to  "Logout", logout_path, class: "dropdown-item", method: :delete %>
+                class: "dropdown-item text-danger" do %>
+                <%= fa_icon "trash", class:"nav-icon" %>&nbsp;&nbsp;Delete Profile
+              <% end %>
+              <div class="dropdown-divider nav-divider"></div>
+              <%= link_to logout_path, class: "dropdown-item", method: :delete do %>
+                <%= fa_icon "sign-out", class:"nav-icon" %>&nbsp;&nbsp;Logout
+              <% end %>
             </div>
           </li>
         <% else %>

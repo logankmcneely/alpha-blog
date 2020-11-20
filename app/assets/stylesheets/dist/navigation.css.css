@@ -35,3 +35,12 @@
 .navbar-toggler:hover i, .navbar-toggler:focus i, .navbar-toggler:active i {
   color: #b73225 !important;
 }
+
+.nav-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.nav-divider {
+  border-color: rgba(89, 28, 11, 0.25);
+}
