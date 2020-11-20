@@ -29,7 +29,6 @@
 
 .navbar-toggler {
   font-size: 28px;
-  border-color: #591c0b !important;
 
   &:hover,
   &:focus,
@@ -37,7 +36,7 @@
     i {
       color: #b73225 !important;
     }
-    border-color: #b73225 !important;
+    border-color: #591c0b !important;
   }
 }
 
@@ -47,5 +46,21 @@
 }
 
 .nav-divider {
-  border-color: rgba(89,28,11,0.25);
+  border-color: rgba(89, 28, 11, 0.25);
+}
+
+.sign-up {
+  padding: 8px;
+}
+
+@media (max-width: 767.98px) {
+  .expanded {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .collapsed {
+    display: none;
+  }
 }

@@ -1,45 +1,100 @@
-<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-color-light shadow">
+<nav class="navbar fixed-top navbar-expand-md navbar-light bg-color-light shadow">
   <div class="container">
     <%= link_to  "ALPHA BLOG", root_path, class: "navbar-brand", id: "logo" %>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <%= fa_icon "bars", class:"font-color-red" %>
-    </button>
+
+    <a id="nav-collapse-button" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <%= fa_icon "bars", class: "font-color-red" %>
+    </a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <%# LEFT NAVBAR SECTION %>
       <ul class="navbar-nav mr-auto">
 
+        <%# ARTICLES SECTION %>
+        <%# If not logged in, don't show the drop down to create an article, but allow user to view articles %>
+        <% if !logged_in? %>
+          <li class="nav-item">
+            <%= link_to  "Articles", articles_path, class: "nav-link" %>
+          </li>
+
+        <%# If logged in, show the link to create a new article %>
+        <% else %>
+
+          <%# Expanded Articles dropdown on larger screens %>
+          <li class="nav-item dropdown expanded">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Articles&nbsp;<%= fa_icon "caret-down"%>
+            </a>
+            <div class="dropdown-menu shadow-lg bg-color-light" aria-labelledby="navbarDropdown">
+              <%= link_to  "View Articles", articles_path, class: "dropdown-item" %>
+              <% if logged_in? %>
+                <%= link_to  "Create Article", new_article_path, class: "dropdown-item" %>
+              <% end %>
+            </div>
+          </li>
+
+          <%# Collapsed Articles links on smaller screens/collapsed menu %>
+          <li class="nav-item collapsed">
+            <%= link_to  "Articles", articles_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item collapsed">
+            <%= link_to  "Create Article", new_article_path, class: "nav-link" %>
+          </li>
+
+        <% end %>
+
+        <%# BLOGGERS SECTION %>
         <li class="nav-item">
           <%= link_to  "Bloggers", users_path, class: "nav-link" %>
         </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Articles
-          </a>
-          <div class="dropdown-menu shadow-lg bg-color-light" aria-labelledby="navbarDropdown">
-            <%= link_to  "View Articles", articles_path, class: "dropdown-item" %>
-            <% if logged_in? %>
-              <%= link_to  "Create Article", new_article_path, class: "dropdown-item" %>
-            <% end %>
-          </div>
-        </li>
+        <%# CATEGORIES SECTION %>
+        <%# If admin show dropdown that includes create a new category %>
+        <% if logged_in? && current_user.admin? %>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Categories
-          </a>
-          <div class="dropdown-menu shadow-lg bg-color-light" aria-labelledby="navbarDropdown">
-            <%= link_to  "View Categories", categories_path, class: "dropdown-item" %>
-            <% if logged_in? && current_user.admin? %>
-              <%= link_to  "Create Category", new_category_path, class: "dropdown-item" %>
-            <% end %>
-          </div>
-        </li>
+          <%# Expanded Categories dropdown on larger screens %>
+          <li class="nav-item dropdown expanded">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Categories
+            </a>
+            <div class="dropdown-menu shadow-lg bg-color-light" aria-labelledby="navbarDropdown">
+              <%= link_to  "View Categories", categories_path, class: "dropdown-item" %>
+              <% if logged_in? && current_user.admin? %>
+                <%= link_to  "Create Category", new_category_path, class: "dropdown-item" %>
+              <% end %>
+            </div>
+          </li>
+
+          <%# Collapsed Categories links on smaller screens/collapsed menu %>
+          <li class="nav-item collapsed">
+            <%= link_to  "Categories", categories_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item collapsed">
+            <%= link_to  "Create Category", new_category_path, class: "nav-link" %>
+          </li>
+
+        <%# If not admin, show link to view categories only %>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to  "Categories", categories_path, class: "nav-link" %>
+          </li>
+        <% end %>
 
       </ul>
+
+      <%# Divider that shows in the collapsed menu to seperate the left from right nav bar links %>
+      <div class="dropdown-divider collapsed nav-divider"></div>
+
+      <%# RIGHT NAVBAR SECTION %>
       <ul class="navbar-nav ml-auto">
+
+        <%# USER OPTIONS SECTION %>
+        <%# If user is logged in show dropdown that includes user account options %>
         <% if logged_in? %>
-          <li class="nav-item dropdown">
+
+          <%# Expanded User dropdown on larger screens %>
+          <li class="nav-item dropdown expanded">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= current_user.username %> <%= "(Admin)" if current_user.admin? %>&nbsp;<%= fa_icon "caret-down" %>
             </a>
@@ -61,15 +116,43 @@
               <% end %>
             </div>
           </li>
+
+          <%# Collapsed User links on smaller screens/collapsed menu %>
+          <li class="nav-item collapsed">
+            <%= link_to "View Profile", current_user, class: "nav-link" %>
+          </li>
+          <li class="nav-item collapsed">
+            <%= link_to "Edit Profile", edit_user_path(current_user), class: "nav-link" %>
+          </li>
+          <li class="nav-item collapsed">
+            <%= link_to "Delete Profile", user_path(current_user), method: :delete, 
+                data: { confirm: "Are you sure you want to delete your profile?" },
+                class: "nav-link" %>
+          </li>
+          <div class="dropdown-divider collapsed nav-divider"></div>
+          <li class="nav-item collapsed">
+            <%= link_to "Logout", logout_path, class: "nav-link" %>
+          </li>
+
+        <%# If user is not logged in show options to sign or log in %>
         <% else %>
           <li class="nav-item">
-            <%= link_to  "Sign Up", signup_path, class: "nav-link"%>
+            <%= link_to "Login", login_path, class: "nav-link mr-2" %>
           </li>
-          <li class="nav-item">
-            <%= link_to  "Login", login_path, class: "nav-link" %>
+
+          <%# Expanded user sign in button on larger screens %>
+          <li class="nav-item expanded">
+            <%= link_to "Sign Up", signup_path, class: "sign-up shadow-sm btn btn-sm bg-color-red font-color-light"%>
           </li>
+
+          <%# Collapsed user sign in link on smaller screens/collapsed menu %>
+          <li class="nav-item collapsed">
+            <%= link_to "Sign Up", signup_path, class: "nav-link"%>
+          </li>
+          
         <% end %>
       </ul>
+
     </div>
-</nav>
+  </nav>
 </div>

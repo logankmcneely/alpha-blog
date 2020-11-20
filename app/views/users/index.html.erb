@@ -1,14 +1,14 @@
 <% content_for :body_class, "articles-container" %>
 
 <h1 class="display-4 text-center mt-5 mb-5 font-color-dark-red">Bloggers</h1>
-<hr class="col-sm-9 col-md-10 col-lg-10 bg-color-dark-red mb-3">
+<hr class="col-sm-7 col-md-8 col-lg-10 bg-color-dark-red mb-3">
 <%= render 'shared/pagination', obj: @users %>
 <div class="my-4"></div>
 
 <div class="container">
   <div class="row justify-content-center">
     <% @users.each do |user| %>
-      <div class="col-sm-9 col-lg-6">
+      <div class="col-sm-10 col-lg-6">
         <div class="bloggers bg-color-light-shade rounded shadow-sm mb-4 pl-md-5 pl-sm-1 pr-md-5 pl-sm-1 pt-3 pb-3">
           <% if logged_in? && current_user.admin? && !user.admin %>
             <%= link_to "#", { class: "bloggers-access-dropdown btn btn-lg rounded dropdown-toggle dropdown-toggle-split options-dropdown", id:"dropdownMenuLink", role:"button", data: { toggle:"dropdown"}, aria: { haspopup:"true", expanded:"false"}}  do %>
