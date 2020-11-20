@@ -1,15 +1,17 @@
+@import 'theme';
+
 .navbar-nav .nav-item.active .nav-link,
 .navbar-nav .nav-item:hover .nav-link {
-  color: #b73225 !important;
+  color: $color-red !important;
 }
 
 .nav-link {
-  color: #591c0b !important;
+  color: $color-dark-red !important;
   letter-spacing: 1px;
 }
 
 #logo {
-  color: #b73225;
+  color: $color-red;
   float: left;
   font-size: 1.7em;
   text-transform: uppercase;
@@ -18,12 +20,12 @@
 }
 
 .dropdown-item {
-  color: #591c0b !important;
+  color: $color-dark-red !important;
 
   &:hover,
   &:focus {
-    background-color: #dce1e3 !important;
-    color: #b73225 !important;
+    background-color: $color-light !important;
+    color: $color-red !important;
   }
 }
 
@@ -34,19 +36,10 @@
   &:focus,
   &:active {
     i {
-      color: #b73225 !important;
+      color: $color-red !important;
     }
-    border-color: #591c0b !important;
+    border-color: $color-dark-red !important;
   }
-}
-
-.nav-icon {
-  width: 16px;
-  height: 16px;
-}
-
-.nav-divider {
-  border-color: rgba(89, 28, 11, 0.25);
 }
 
 .sign-up {

@@ -1,0 +1,10 @@
+@import 'theme';
+
+#sticky-footer {
+  flex-shrink: none;
+
+  a:hover {
+    text-decoration: none;
+    color: $color-red;
+  }
+}

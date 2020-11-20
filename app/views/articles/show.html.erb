@@ -1,37 +1,49 @@
-<h2 class="text-center mt-4"><%= @article.title  %></h2>
-<div class="container mb-4">
-  <div class="row justify-content-md-center">
-    <div class="col-8 mt-4">
-      <div class="card text-center shadow rounded">
-        <div class="card-header">
-          <div class="row justify-content-center align-items-center">
-            <%= link_to gravatar_for(@article.user, size: 32), @article.user, class: "mr-2" %>
-            <%= link_to  @article.user.username , @article.user, class: "text-italic ml-2" %>
-          </div>
-          <% if @article.categories.any? %>
-            <div class="row justify-content-center align-items-center mt-2">
-              <%= render @article.categories %>
-            </div>
+
+<div class="row justify-content-center">
+  <div class="col-sm-11 col-lg-9 mt-5">
+    <div class="menu-anchor-parent bg-color-light-shade rounded shadow mb-4 mt-4 pl-md-5 pl-sm-1 pr-md-5 pl-sm-1 pt-3 pb-3">
+      <% if logged_in? && (current_user == @article.user || current_user.admin?) %>
+        <%= link_to "#", { class: "menu-anchor btn dropdown-toggle dropdown-toggle-split options-dropdown", id:"dropdownMenuLink", role:"button", data: { toggle:"dropdown"}, aria: { haspopup:"true", expanded:"false"}}  do %>
+          <%= fa_icon "ellipsis-v" %>
+        <% end %>
+        <div class="dropdown-menu shadow-lg dropdown-menu-right bg-color-light">
+            <%= link_to edit_article_path(@article), class: "dropdown-item" do %>
+              <%= fa_icon "edit", class: "menu-icon" %>&nbsp;Edit
+            <% end %>
+            <%= link_to article_path(@article), method: :delete, class: "dropdown-item",
+              data: { confirm: "Are you sure you want to delete the article '#{@article.title}'?" } do %>
+              <%= fa_icon "trash", class: "menu-icon" %>&nbsp;Delete
+            <% end %>
+        </div>
+      <% end %>
+      <div class="row">
+        <div class="col">
+          <h3 class="card-title font-color-dark-red text-center mb-2 mt-4"><%= @article.title %></h5>
+        </div>
+      </div>
+      <div class="row mb-1">
+        <div class="col text-center card-subtitle">
+          <%= link_to @article.user, class: "link" do %>
+            <i><%= @article.user.username %></i>
           <% end %>
         </div>
-        <div class="card-body">
-          <div class="card-text text-left"><%= simple_format(@article.description) %></div>
-          <% if logged_in? && (current_user == @article.user || current_user.admin?) %>
-          <%= link_to "Edit", 
-            edit_article_path(@article), 
-            class: "btn btn-warning" %>
-          <%= link_to "Delete", 
-            article_path(@article), 
-            method: :delete,
-            data: { confirm: "Are you sure?" }, 
-            class: "btn btn-danger" %>
-          <% end %>
-        </div>
-        <div class="card-footer text-muted">
-          Created <%= time_ago_in_words(@article.created_at) %> ago
+      </div>
+      <div class="row mb-2">
+        <div class="col text-center font-italic card-subtitle">
+          <small><%= @article.created_at.strftime("%b %-d, %Y %l:%M %P")%></small>
           <% if @article.created_at != @article.updated_at %>
-          | Edited <%= distance_of_time_in_words_to_now(@article.updated_at) %> ago
+            <small>(updated <%= distance_of_time_in_words_to_now(@article.updated_at)%> ago)</small>
           <% end %>
+        </div>
+      </div>
+      <% if @article.categories.any? %>
+          <div class="row justify-content-center align-items-center mb-2">
+            <%= render @article.categories %>
+          </div>
+        <% end %>
+      <div class="row mt-4 mb-4">
+        <div class="col">
+          <p class="pl-4 pr-4 article-desciption"><%= @article.description %></p>
         </div>
       </div>
     </div>

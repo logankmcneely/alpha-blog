@@ -1,25 +1,15 @@
-.home-container {
-  background-image: asset-url('background1.jpg') !important;
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+@import 'theme';
 
 .jumbotron {
   margin-bottom: 0;
   h1 {
     letter-spacing: -1px;
-    color: #b73225;
+    color: $color-red;
     text-transform: uppercase;
     font-weight: bold !important;
   }
   a:hover {
-    background-color: #b73225;
-    color: #dce1e3;
+    background-color: $color-red;
+    color: $color-light;
   }
 }
-

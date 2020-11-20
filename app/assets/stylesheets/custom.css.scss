@@ -1,4 +1,5 @@
 @import 'bootstrap/dist/css/bootstrap';
+@import 'theme';
 
 html,
 body {
@@ -9,58 +10,9 @@ body {
   overflow-x: hidden;
 }
 
-.page-container {
+.body-container {
   padding-top: 66px;
   flex: 1 0 auto;
-  background-color: #dce1e3;
+  background-color: $color-light;
 }
 
-#sticky-footer {
-  flex-shrink: none;
-
-  a:hover {
-    text-decoration: none;
-    color: #b73225;
-  }
-}
-
-#form {
-  padding: 64px 32px;
-
-  h1 {
-    color: #004e7c;
-    letter-spacing: -1px;
-  }
-
-  .form-control {
-    &:hover {
-      border-color: #004e7c;
-    }
-  }
-
-  input[type="submit"]:hover,
-  a:hover {
-    border-color: none !important;
-    color: #5c5f58;
-  }
-}
-
-.category-badge {
-  &:hover {
-    background-color: #591c0b;
-    color: #dce1e3;
-  }
-}
-
-.link {
-  color: #591c0b;
-
-  &:hover {
-    color: #b73225;
-    text-decoration: none;
-  }
-}
-
-.dropdown-toggle::after {
-  display: none;
-}

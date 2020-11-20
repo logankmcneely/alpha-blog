@@ -1,0 +1,7 @@
+#sticky-footer {
+  flex-shrink: none;
+}
+#sticky-footer a:hover {
+  text-decoration: none;
+  color: #b73225;
+}

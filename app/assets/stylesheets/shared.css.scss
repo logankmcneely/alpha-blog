@@ -1,0 +1,58 @@
+@import 'theme';
+
+// Background and centered content for forms/sign up
+.page-container {
+  background-image: asset-url('background1.jpg') !important;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Pill badges used for categories
+.category-badge {
+  &:hover {
+    background-color: $color-dark-red;
+    color: $color-light;
+  }
+}
+
+// Shared link styles
+.link {
+  color: $color-dark-red;
+
+  &:hover {
+    color: $color-red;
+    text-decoration: none;
+  }
+}
+
+// Remove bootstraps caret added to the end of dropdowns
+.dropdown-toggle::after {
+  display: none;
+}
+
+// Anchored dropdown menus for admin and user access
+.menu-anchor {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+}
+
+.menu-anchor-parent {
+  position: relative;
+}
+
+// Similar icon size for all menus (dropdowns and navigation)
+.menu-icon {
+  width: 16px;
+  height: 16px;
+}
+
+// Shared horizontal line for dropdown and navigation
+.menu-divider {
+  border-color: rgba(89, 28, 11, 0.25);
+}

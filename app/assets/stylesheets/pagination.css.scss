@@ -1,3 +1,5 @@
+@import 'theme';
+
 .flickr_pagination {
   text-align: center;
   padding: 0.3em;
@@ -18,19 +20,19 @@
 .flickr_pagination .current {
   font-style: normal;
   font-weight: bold;
-  color: #b73225;
+  color: $color-red;
 }
 
 .flickr_pagination a {
-  border: 1px solid #591c0b;
-  color: #591c0b;
+  border: 1px solid $color-dark-red;
+  color: $color-dark-red;
   text-decoration: none;
 }
 
 .flickr_pagination a:hover,
 .flickr_pagination a:focus {
-  border-color: #b73225;
-  background: #b73225;
+  border-color: $color-red;
+  background: $color-red;
   color: white;
 }
 

@@ -84,7 +84,7 @@
       </ul>
 
       <%# Divider that shows in the collapsed menu to seperate the left from right nav bar links %>
-      <div class="dropdown-divider collapsed nav-divider"></div>
+      <div class="dropdown-divider collapsed menu-divider"></div>
 
       <%# RIGHT NAVBAR SECTION %>
       <ul class="navbar-nav ml-auto">
@@ -100,19 +100,19 @@
             </a>
             <div class="dropdown-menu shadow-lg bg-color-light" aria-labelledby="navbarDropdown">
               <%= link_to current_user, class: "dropdown-item" do %>
-                <%= fa_icon "user", class:"nav-icon" %>&nbsp;&nbsp;View Profile
+                <%= fa_icon "user", class:"menu-icon" %>&nbsp;&nbsp;View Profile
               <% end %>
               <%= link_to edit_user_path(current_user), class: "dropdown-item" do %>
-                <%= fa_icon "edit", class:"nav-icon" %>&nbsp;&nbsp;Edit Profile
+                <%= fa_icon "edit", class:"menu-icon" %>&nbsp;&nbsp;Edit Profile
               <% end %>
               <%= link_to user_path(current_user), method: :delete, 
                 data: { confirm: "Are you sure you want to delete your profile?" },
                 class: "dropdown-item text-danger" do %>
-                <%= fa_icon "trash", class:"nav-icon" %>&nbsp;&nbsp;Delete Profile
+                <%= fa_icon "trash", class:"menu-icon" %>&nbsp;&nbsp;Delete Profile
               <% end %>
-              <div class="dropdown-divider nav-divider"></div>
+              <div class="dropdown-divider menu-divider"></div>
               <%= link_to logout_path, class: "dropdown-item", method: :delete do %>
-                <%= fa_icon "sign-out", class:"nav-icon" %>&nbsp;&nbsp;Logout
+                <%= fa_icon "sign-out", class:"menu-icon" %>&nbsp;&nbsp;Logout
               <% end %>
             </div>
           </li>
@@ -129,7 +129,7 @@
                 data: { confirm: "Are you sure you want to delete your profile?" },
                 class: "nav-link" %>
           </li>
-          <div class="dropdown-divider collapsed nav-divider"></div>
+          <div class="dropdown-divider collapsed menu-divider"></div>
           <li class="nav-item collapsed">
             <%= link_to "Logout", logout_path, class: "nav-link" %>
           </li>

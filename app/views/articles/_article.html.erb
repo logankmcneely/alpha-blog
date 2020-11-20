@@ -1,20 +1,20 @@
 <% content_for :body_class, "articles-container" %>
 
 <div class="row justify-content-center">
-  <div class="col-sm-11 col-md-8">
+  <div class="col-sm-11 col-lg-9">
     <% @articles.each do |article| %>
-      <div class="article bg-color-light-shade rounded shadow-sm mb-4 mt-4 pl-md-5 pl-sm-1 pr-md-5 pl-sm-1 pt-3 pb-3">
+      <div class="menu-anchor-parent bg-color-light-shade rounded shadow-sm mb-4 mt-4 pl-md-5 pl-sm-1 pr-md-5 pl-sm-1 pt-3 pb-3">
         <% if logged_in? && (current_user == article.user || current_user.admin?) %>
-          <%= link_to "#", { class: "user-access-dropdown btn dropdown-toggle dropdown-toggle-split options-dropdown", id:"dropdownMenuLink", role:"button", data: { toggle:"dropdown"}, aria: { haspopup:"true", expanded:"false"}}  do %>
+          <%= link_to "#", { class: "menu-anchor btn dropdown-toggle dropdown-toggle-split options-dropdown", id:"dropdownMenuLink", role:"button", data: { toggle:"dropdown"}, aria: { haspopup:"true", expanded:"false"}}  do %>
             <%= fa_icon "ellipsis-v" %>
           <% end %>
           <div class="dropdown-menu shadow-lg dropdown-menu-right bg-color-light">
               <%= link_to edit_article_path(article), class: "dropdown-item" do %>
-                <%= fa_icon "edit" %>&nbsp;Edit
+                <%= fa_icon "edit", class: "menu-icon" %>&nbsp;Edit
               <% end %>
               <%= link_to article_path(article), method: :delete, class: "dropdown-item",
                 data: { confirm: "Are you sure you want to delete the article '#{article.title}'?" } do %>
-                <%= fa_icon "trash" %>&nbsp;Delete
+                <%= fa_icon "trash", class: "menu-icon" %>&nbsp;Delete
               <% end %>
           </div>
         <% end %>

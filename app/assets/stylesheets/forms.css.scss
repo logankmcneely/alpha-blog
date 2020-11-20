@@ -1,0 +1,22 @@
+@import 'theme';
+
+#form {
+  padding: 64px 32px;
+
+  h1 {
+    color: $color-blue;
+    letter-spacing: -1px;
+  }
+
+  .form-control {
+    &:hover {
+      border-color: $color-blue;
+    }
+  }
+
+  input[type="submit"]:hover,
+  a:hover {
+    border-color: none !important;
+    color: $color-dark;
+  }
+}
