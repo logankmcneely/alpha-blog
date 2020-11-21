@@ -20,7 +20,7 @@
         <% end %>
         <div class="row">
           <div class="col">
-            <h3 class="card-title text-center mb-2 mt-4"><%= link_to article.title, article_path(article), class: "font-color-dark-red link" %></h5>
+            <h3 class="card-title text-center mb-2 mt-4"><%= link_to article.title, article, class: "font-color-dark-red link" %></h5>
           </div>
         </div>
         <div class="row mb-1">
@@ -45,7 +45,9 @@
           <% end %>
         <div class="row mt-4 mb-4">
           <div class="col">
-            <p class="pl-4 pr-4 article-desciption"><%= article.description.truncate(300) %></p>
+            <p class="pl-4 pr-4 article-desciption">
+              <%= truncate(strip_tags(article.description.to_s), length: 450) { link_to "Continue", article, class: "link" } %>
+            </p>
           </div>
         </div>
       </div>

@@ -1,10 +1,10 @@
 <div class="row justify-content-center">
   <h1 class="display-4 text-center mt-5 mb-5 font-color-dark-red"><%= @category.name %></h1>
   <% if logged_in? && current_user.admin? %>
-  <%= link_to "#", { class: "admin-access-categories ml-3 mt-auto mb-auto dropdown-toggle options-dropdown", id:"dropdownMenuLink", role:"button", data: { toggle:"dropdown"}, aria: { haspopup:"true", expanded:"false"}}  do %>
-    <%= fa_icon "caret-down", class: "font-color-dark-red" %>
-  <% end %>
-  <div class="dropdown-menu shadow-lg bg-color-light">
+    <%= link_to "#", { class: "admin-access-categories ml-3 mt-auto mb-auto dropdown-toggle options-dropdown", id:"dropdownMenuLink", role:"button", data: { toggle:"dropdown"}, aria: { haspopup:"true", expanded:"false"}}  do %>
+      <%= fa_icon "caret-down", class: "font-color-dark-red" %>
+    <% end %>
+    <div class="dropdown-menu shadow-lg bg-color-light">
       <%= link_to edit_category_path(@category), class: "dropdown-item" do %>
         <%= fa_icon "edit", class: "menu-icon" %>&nbsp;Edit
       <% end %>
@@ -12,11 +12,9 @@
         data: { confirm: "Are you sure you want to delete the category '#{@category.name}'?" } do %>
         <%= fa_icon "trash", class: "menu-icon" %>&nbsp;Delete
       <% end %>
-  </div>
-<% end %>
+    </div>
+  <% end %>
 </div>
-
-
 
 <hr class="col-sm-12 col-md-10 col-lg-8 bg-color-dark-red mb-5">
 
@@ -28,5 +26,6 @@
   <%= render 'shared/pagination', obj: @articles  %>
   <div class="my-5"></div>
 <% else %>
+
   <h5 class="text-center font-italic font-weight-light mt-5">This category has no articles at this time.</h5>
 <% end %>

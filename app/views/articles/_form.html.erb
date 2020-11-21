@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-sm-12 col-md-8">
+    <div class="col-sm-12">
 
       <%= render  "shared/errors", obj: @article %>
 
@@ -11,16 +11,12 @@
       <div class="form-group col">
         <%= f.label :title, class: "font-color-blue" %>
         <%= f.text_field :title, 
-          class: "form-control shadow-sm rounded",
-          placeholder: "Title of Article" %>
+          class: "form-control shadow-sm rounded" %>
       </div>
 
       <div class="form-group col">
         <%= f.label :description, class: "font-color-blue" %>
-        <%= f.text_area :description, 
-          rows: 8, 
-          class: "form-control shadow-sm rounded",
-          placeholder: "Description of Article" %>
+        <%= f.rich_text_area :description %>
       </div>
 
       <div class="form-group col">
