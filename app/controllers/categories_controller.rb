@@ -25,7 +25,6 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save 
-      flash[:notice] = "You have successfully created the category #{@category.name}"
       redirect_to @category
     else
       render 'new'
@@ -37,7 +36,6 @@ class CategoriesController < ApplicationController
 
   def update
     if @category.update(category_params)
-      flash[:notice] = "#{@category.name}'s was successfully updated."
       redirect_to @category
     else
       render 'edit'
@@ -62,7 +60,6 @@ class CategoriesController < ApplicationController
 
   def require_admin
     if !(logged_in? && current_user.admin?)
-      flash[:alert] = "You lack the permissions to perform that action"
       redirect_to categories_path
     end
   end

@@ -9,6 +9,8 @@
   }
 
   .form-control {
+    background-color: $color-light-shade;
+    
     &:hover {
       border-color: $color-blue;
     }
