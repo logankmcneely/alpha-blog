@@ -38,8 +38,19 @@
 // Anchored dropdown menus for admin and user access
 .menu-anchor {
   position: absolute;
-  top: 12px;
-  right: 16px;
+  top: 24px;
+  right: 24px;
+
+  i {
+    font-size: 1.3em;
+    color: $color-dark-red;
+  }
+
+  &:hover {
+    i {
+      color: $color-red;
+    }
+  }
 }
 
 .menu-anchor-parent {

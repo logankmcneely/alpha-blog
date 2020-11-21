@@ -21,4 +21,13 @@
     border-color: none !important;
     color: $color-dark;
   }
+
+  .custom-select {
+    background-color: $color-light-shade;
+    option:checked, option:hover {
+      background-color: $color-blue;
+      color: $color-light;
+    }
+  }
+
 }

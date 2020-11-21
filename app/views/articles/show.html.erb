@@ -3,7 +3,7 @@
   <div class="col-sm-11 col-lg-9 mt-5">
     <div class="menu-anchor-parent bg-color-light-shade rounded shadow mb-4 mt-4 pl-md-5 pl-sm-1 pr-md-5 pl-sm-1 pt-3 pb-3">
       <% if logged_in? && (current_user == @article.user || current_user.admin?) %>
-        <%= link_to "#", { class: "menu-anchor btn dropdown-toggle dropdown-toggle-split options-dropdown", id:"dropdownMenuLink", role:"button", data: { toggle:"dropdown"}, aria: { haspopup:"true", expanded:"false"}}  do %>
+        <%= link_to "#", { class: "menu-anchor dropdown-toggle dropdown-toggle-split options-dropdown", id:"dropdownMenuLink", role:"button", data: { toggle:"dropdown"}, aria: { haspopup:"true", expanded:"false"}}  do %>
           <%= fa_icon "ellipsis-v" %>
         <% end %>
         <div class="dropdown-menu shadow-lg dropdown-menu-right bg-color-light">

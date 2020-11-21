@@ -5,7 +5,7 @@
     <% @articles.each do |article| %>
       <div class="menu-anchor-parent bg-color-light-shade rounded shadow-sm mb-4 mt-4 pl-md-5 pl-sm-1 pr-md-5 pl-sm-1 pt-3 pb-3">
         <% if logged_in? && (current_user == article.user || current_user.admin?) %>
-          <%= link_to "#", { class: "menu-anchor btn dropdown-toggle dropdown-toggle-split options-dropdown", id:"dropdownMenuLink", role:"button", data: { toggle:"dropdown"}, aria: { haspopup:"true", expanded:"false"}}  do %>
+          <%= link_to "#", { class: "menu-anchor dropdown-toggle dropdown-toggle-split options-dropdown", id:"dropdownMenuLink", role:"button", data: { toggle:"dropdown"}, aria: { haspopup:"true", expanded:"false"}}  do %>
             <%= fa_icon "ellipsis-v" %>
           <% end %>
           <div class="dropdown-menu shadow-lg dropdown-menu-right bg-color-light">
@@ -20,9 +20,7 @@
         <% end %>
         <div class="row">
           <div class="col">
-            <%= link_to  article_path(article), class: "font-color-dark-red link" do %>
-              <h3 class="card-title text-center mb-2 mt-4"><%= article.title %></h5>
-            <% end %>
+            <h3 class="card-title text-center mb-2 mt-4"><%= link_to article.title, article_path(article), class: "font-color-dark-red link" %></h5>
           </div>
         </div>
         <div class="row mb-1">
