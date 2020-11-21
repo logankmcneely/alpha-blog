@@ -31,3 +31,22 @@
   }
 
 }
+
+// Remove Action Text image upload button
+.trix-button-group--file-tools {
+  display: none !important;
+}
+
+.trix-button-row { 
+  display: flex !important; 
+  flex-wrap: wrap !important; 
+  justify-content: space-between !important; 
+} 
+
+.trix-button-group {
+  margin-left: 0 !important;
+}
+
+.article-description {
+  min-height: 400px;
+}

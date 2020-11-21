@@ -18,3 +18,14 @@ require("channels"); // Uncomment to copy all static images under ../images to t
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+
+require("trix");
+
+require("@rails/actiontext"); // Disable image uploads in Action Text
+
+
+window.addEventListener("trix-file-accept", function (event) {
+  event.preventDefault();
+  alert("File attachment not supported!");
+});
