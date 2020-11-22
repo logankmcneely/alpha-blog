@@ -7,10 +7,10 @@ class CategoriesController < ApplicationController
     # Returns all categories for admin and only categories with articles for users
     if (logged_in? && current_user.admin?)
       # Returns categoires in order of number of articles and includes those with no articles 
-      @categories = Category.left_outer_joins(:articles).group('categories.name').order('count(articles.id) DESC').paginate(page: params[:page], per_page: 10)
+      @categories = Category.left_outer_joins(:articles).group('categories.id').order('count(articles.id) DESC').paginate(page: params[:page], per_page: 10)
     else
       # Returns categories in order of articles written (omits those with no articles)
-      @categories = Category.joins(:articles).group('categories.name').order('count(articles.id) DESC').paginate(page: params[:page], per_page: 10)
+      @categories = Category.joins(:articles).group('categories.id').order('count(articles.id) DESC').paginate(page: params[:page], per_page: 10)
     end
   end
 
