@@ -28,4 +28,13 @@ require("@rails/actiontext"); // Disable image uploads in Action Text
 window.addEventListener("trix-file-accept", function (event) {
   event.preventDefault();
   alert("File attachment not supported!");
+}); // External links open in new tab
+
+$(document).on('turbolinks:load', function () {
+  $(".article-show-description").on('click', 'a', function (e) {
+    console.log('Clicked');
+    e.preventDefault();
+    var url = $(this).attr('href');
+    window.open(url, '_blank');
+  });
 });
