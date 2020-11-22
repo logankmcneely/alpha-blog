@@ -22,10 +22,10 @@ require("trix")
 require("@rails/actiontext")
 
 // Disable image uploads in Action Text
-window.addEventListener("trix-file-accept", function(event) {
-  event.preventDefault()
-  alert("File attachment not supported!")
-})
+// window.addEventListener("trix-file-accept", function(event) {
+//   event.preventDefault()
+//   alert("File attachment not supported!")
+// })
 
 // External links open in new tab
 $(document).on('turbolinks:load', function () {
