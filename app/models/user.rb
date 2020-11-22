@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_secure_password
 
   def self.get_categories(user_id)
-    Category.joins(:articles).group('categories.name').where(articles:{ user_id: user_id })
+    Category.joins(:articles).group('categories.id').where(articles:{ user_id: user_id })
   end
 
 end
