@@ -31,7 +31,7 @@
           <div class="article-info col-md-7 bg-color-light-tint p-4 <%= "text-md-right" if index.odd? %>">
             <div class="row">
               <div class="col-12">
-                <h4 class="font-color-dark"><%= article.title %></h4>
+                <h5 class="font-color-blue mb-0"><%= article.title %></h5>
               </div>
               <div class="col-12">
                 <%= link_to article.user, class: "link card-subtitle mb-2" do %>
@@ -46,9 +46,7 @@
               </div>
               <div class="col-12">
                 <% if article.categories.any? %>
-                  <div class="mb-2">
-                    <%= render article.categories %>
-                  </div>
+                  <%= render article.categories %>
                 <% end %>
               </div>
             </div>
