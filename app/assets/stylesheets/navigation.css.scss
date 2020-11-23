@@ -19,7 +19,8 @@
   font-weight: bold;
 }
 
-.dropdown-item {
+
+nav .dropdown-item {
   color: $color-dark-red !important;
 
   &:hover,
@@ -44,4 +45,9 @@
 
 .sign-up {
   padding: 8px;
+}
+
+.nav-icon {
+  width: 16px;
+  height: 16px;
 }

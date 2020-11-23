@@ -14,6 +14,14 @@
   color: #dce1e3;
 }
 
+.font-color-light-shade {
+  color: #dfe4e5;
+}
+
+.font-color-light-tint {
+  color: #eaedee;
+}
+
 .font-color-dark-red {
   color: #591c0b;
 }

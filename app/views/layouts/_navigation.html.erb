@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top navbar-expand-md navbar-light bg-color-light shadow-sm">
+<nav class="navbar fixed-top navbar-expand-md navbar-light bg-color-light">
   <div class="container">
 
     <%= link_to  "ALPHA BLOG", root_path, class: "navbar-brand", id: "logo" %>
@@ -102,10 +102,10 @@
             </a>
             <div class="dropdown-menu shadow-lg bg-color-light" aria-labelledby="navbarDropdown">
               <%= link_to current_user, class: "dropdown-item" do %>
-                <%= fa_icon "user", class:"menu-icon" %>&nbsp;&nbsp;View Profile
+                <%= fa_icon "user", class:"nav-icon" %>&nbsp;&nbsp;View Profile
               <% end %>
               <%= link_to edit_user_path(current_user), class: "dropdown-item" do %>
-                <%= fa_icon "edit", class:"menu-icon" %>&nbsp;&nbsp;Edit Profile
+                <%= fa_icon "edit", class:"nav-icon" %>&nbsp;&nbsp;Edit Profile
               <% end %>
               
               <%# Prevent admin from deleting themself %>
@@ -113,13 +113,13 @@
                 <%= link_to user_path(current_user), method: :delete, 
                   data: { confirm: "Are you sure you want to delete your profile?" },
                   class: "dropdown-item text-danger" do %>
-                  <%= fa_icon "trash", class:"menu-icon" %>&nbsp;&nbsp;Delete Profile
+                  <%= fa_icon "trash", class:"nav-icon" %>&nbsp;&nbsp;Delete Profile
                 <% end %>
               <% end %>
 
               <div class="dropdown-divider menu-divider"></div>
               <%= link_to logout_path, class: "dropdown-item", method: :delete do %>
-                <%= fa_icon "sign-out", class:"menu-icon" %>&nbsp;&nbsp;Logout
+                <%= fa_icon "sign-out", class:"nav-icon" %>&nbsp;&nbsp;Logout
               <% end %>
             </div>
           </li>

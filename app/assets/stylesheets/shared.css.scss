@@ -52,25 +52,40 @@
       color: $color-red;
     }
   }
+
 }
 
 .menu-anchor-parent {
   position: relative;
 }
 
-// Similar icon size for all menus (dropdowns and navigation)
+// Similar icon size for all menus
 .menu-icon {
+  color: $color-blue;
   width: 16px;
   height: 16px;
+}
+
+.dropdown-item {
+  color: $color-blue;
+  &:hover,
+  &:focus {
+    background-color: $color-light-shade !important;
+    color: $color-red !important;
+    i {
+      color: $color-red !important;
+    }
+  }
+}
+
+.display-4 {
+  text-transform: capitalize;
+  letter-spacing: 0.1em;
 }
 
 // Shared horizontal line for dropdown and navigation
 .menu-divider {
   border-color: rgba(89, 28, 11, 0.25);
-}
-
-.display-4 {
-  letter-spacing: 0.15em;
 }
 
 @media (max-width: 767.98px) {
