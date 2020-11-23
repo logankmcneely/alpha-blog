@@ -18,9 +18,9 @@
     background-color: $color-dark-red;
     color: $color-light;
   }
-  &:first-child {
-    margin-left: 0 !important;
-  }
+
+  margin-left: 0 !important;
+
 }
 
 // Shared link styles
@@ -71,10 +71,12 @@
 
 .dropdown-item {
   color: $color-blue;
+
   &:hover,
   &:focus {
     background-color: $color-light-shade !important;
     color: $color-red !important;
+
     i {
       color: $color-red !important;
     }

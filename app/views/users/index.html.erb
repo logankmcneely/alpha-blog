@@ -1,12 +1,14 @@
-<h1 class="display-4 text-center mt-5 mb-5 font-color-dark-red">Bloggers</h1>
-<%= render 'shared/pagination', obj: @users %>
+<h2 class="text-center pt-3 pb-3 bg-color-light font-color-red font-weight-bold shadow-sm">Bloggers</h2>
 <div class="my-4"></div>
 
 <div class="container">
   <div class="row justify-content-center">
     <% @users.each do |user| %>
-      <div class="col-sm-10 col-lg-6">
-        <div id="blogger-card" class="menu-anchor-parent bg-color-light-shade rounded shadow-sm mb-4 pl-md-5 pl-sm-1 pr-md-5 pl-sm-1 pt-3 pb-3">
+        <div class="col-sm-10 col-md-6 col-lg-5">
+
+        <div class="card-container menu-anchor-parent bg-color-light-shade rounded shadow-sm mb-4 p-1" data-link="<%= user_path(user) %>">
+
+          <%# Admin options %>
           <% if logged_in? && current_user.admin? && !user.admin %>
             <%= link_to "#", { class: "menu-anchor rounded dropdown-toggle dropdown-toggle-split options-dropdown", id:"dropdownMenuLink", role:"button", data: { toggle:"dropdown"}, aria: { haspopup:"true", expanded:"false"}}  do %>
               <%= fa_icon "ellipsis-v" %>
@@ -18,27 +20,40 @@
               <% end %>
             </div>
           <% end %>
-          <div class="row">
-            <div class="col">
-              <h3 class="card-title text-center mb-2 mt-4"><%= link_to user.username, user, class: "font-color-dark-red link" %></h5>
+
+
+          <div class="row no-gutters">
+
+            <%# Image Section %>
+            <div class="col-4">
+              <%= image_tag "#{user.image_url}", class: "category-image img-responsive" %> 
+            </div>
+
+
+            <%# Info Section %>
+            <div class="category-info col-8 bg-color-light-tint p-4">
+              <div class="row">
+                <div class="col-12">
+                  <h5 class="font-color-dark"><%= user.username %></h5>
+                </div>
+                <div class="col-12 card-subtitle">
+                  <i><%= pluralize(user.articles.count, "article") %></i>
+                </div>
+                <div class="col-12">
+                  <small>Joined <%= distance_of_time_in_words_to_now(user.created_at) %> ago</small>
+                </div>
+                <div class="col-12">
+                  <% if User.get_categories(user.id).any? %>
+
+                      <%= render User.get_categories(user.id).slice(..3) %>
+
+                  <% end %>
+                </div>
+              </div>
+
             </div>
           </div>
-          <div class="row mb-1">
-            <div class="col text-center card-subtitle">
-              <i><%= pluralize(user.articles.count, "article") %></i>
-            </div>
-          </div>
-          <div class="row mb-2">
-            <div class="col text-center font-italic card-subtitle">
-              <small>Joined <%= distance_of_time_in_words_to_now(user.created_at) %> ago</small>
-            </div>
-          </div>
-          <% if User.get_categories(user.id).any? %>
-            <div class="row justify-content-center align-items-center mb-2">
-              <%= render User.get_categories(user.id).slice(..3) %>
-            </div>
-          <% end %>
-          <div class="my-4"></div>
+
         </div>
       </div>
     <% end %>
@@ -47,4 +62,3 @@
 
 <div class="my-4"></div>
 <%= render 'shared/pagination', obj: @users %>
-<div class="my-5"></div>

@@ -23,6 +23,13 @@
           placeholder: "Enter your email" %>
       </div>
 
+      <div class="form-group col">
+        <%= f.label "Profile Image URL", class: "font-color-blue" %>
+        <%= f.text_field :image_url, 
+          class: "form-control shadow-sm rounded",
+          placeholder: "ex: https://i.imgur.com/bfisKOG.png" %>
+      </div>
+
       <% placeholder = request.path == signup_path ? "Choose a password" : "Enter your password" %>
       <div class="form-group col mb-5">
         <%= f.label :password, class: "font-color-blue" %>

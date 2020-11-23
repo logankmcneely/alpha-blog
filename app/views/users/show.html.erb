@@ -1,14 +1,10 @@
-
-<h1 class="display-4 text-center mt-5 mb-5 font-color-dark-red"><%= @user.username%>'s Articles</h1>
-<hr class="col-sm-12 col-md-10 col-lg-8 bg-color-dark-red mb-5">
+<h2 class="text-center pt-3 pb-3 bg-color-light font-color-red font-weight-bold shadow-sm"><%= @user.username%>'s Articles</h2>
+<div class="my-4"></div>
 
 <% if @user.articles.count > 0 %>
-  <%= render 'shared/pagination', obj: @articles %>
-  <div class="my-4"></div>
   <%= render 'articles/article' %>
   <div class="my-4"></div>
   <%= render 'shared/pagination', obj: @articles %>
-  <div class="my-5"></div>
 <% else %>
   <h5 class="text-center font-italic font-weight-light mt-3">This user has no articles at this time.</h5>
 <% end %>

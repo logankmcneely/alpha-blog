@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @articles = @user.articles.paginate(page: params[:page], per_page: 5)
+    @articles = @user.articles.order("created_at DESC").paginate(page: params[:page], per_page: 5)
   end
 
   def new
@@ -26,7 +26,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save 
-      flash[:notice] = "Welcome to the Alpha Blog #{@user.username}, you have successfully signed up!"
       session[:user_id] = @user.id
       redirect_to articles_path
     else
@@ -39,7 +38,6 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      flash[:notice] = "#{@user.username}'s profile was successfully updated."
       redirect_to @user
     else
       render 'edit'
@@ -49,7 +47,6 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     session[:user_id] = nil if @user == current_user
-    flash[:notice] = "Account and all associated articles successfully deleted"
     redirect_to root_path
   end
 
@@ -60,7 +57,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :email, :password)
+    params.require(:user).permit(:username, :email, :image_url, :password)
   end
 
   def require_same_user

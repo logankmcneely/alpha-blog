@@ -100,7 +100,7 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= current_user.username %> <%= "(Admin)" if current_user.admin? %>&nbsp;<%= fa_icon "caret-down" %>
             </a>
-            <div class="dropdown-menu shadow-lg bg-color-light" aria-labelledby="navbarDropdown">
+            <div class="dropdown-menu dropdown-menu-right shadow-lg bg-color-light" aria-labelledby="navbarDropdown">
               <%= link_to current_user, class: "dropdown-item" do %>
                 <%= fa_icon "user", class:"nav-icon" %>&nbsp;&nbsp;View Profile
               <% end %>
