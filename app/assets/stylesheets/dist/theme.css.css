@@ -1,0 +1,47 @@
+.font-color-red {
+  color: #b73225;
+}
+
+.font-color-blue {
+  color: #004e7c;
+}
+
+.font-color-dark {
+  color: #5c5f58;
+}
+
+.font-color-light {
+  color: #dce1e3;
+}
+
+.font-color-dark-red {
+  color: #591c0b;
+}
+
+.bg-color-red {
+  background-color: #b73225;
+}
+
+.bg-color-blue {
+  background-color: #004e7c;
+}
+
+.bg-color-dark {
+  background-color: #5c5f58;
+}
+
+.bg-color-light {
+  background-color: #dce1e3;
+}
+
+.bg-color-light-shade {
+  background-color: #dfe4e5;
+}
+
+.bg-color-light-tint {
+  background-color: #eaedee;
+}
+
+.bg-color-dark-red {
+  background-color: #591c0b;
+}

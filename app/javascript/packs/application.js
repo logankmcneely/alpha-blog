@@ -36,3 +36,18 @@ $(document).on('turbolinks:load', function () {
     window.open(url, '_blank');
   });
 });
+
+// Clickable Category cards with styling on hover
+$(document).on('turbolinks:load', function () {
+  $(".category-container")
+    .on('click', function(e){ 
+      if (!$(e.target).is("a"))
+        window.location = $(this).data('link');
+    })
+    .on('mouseenter', function() {
+      $(this).addClass("shadow");
+    })
+    .on('mouseleave', function() {
+      $(this).removeClass("shadow");
+    });
+});

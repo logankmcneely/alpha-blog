@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-sm-12 col-md-8 col-lg-6">
+    <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
 
       <%= render  "shared/errors", obj: @category %>
 
@@ -8,11 +8,18 @@
 
       <h1 class="text-center"><%= request.path == new_category_path ? "Create a New Category" : "Edit Category" %></h1>
 
-      <div class="form-group col mt-4 mb-5">
+      <div class="form-group col mt-4 mb-3">
         <%= f.label "Category name", class: "font-color-blue" %>
         <%= f.text_field :name, 
           class: "form-control shadow-sm rounded",
           placeholder: "Enter a new category" %>
+      </div>
+
+      <div class="form-group col mt-3 mb-5">
+        <%= f.label "Category image URL", class: "font-color-blue" %>
+        <%= f.text_field :image_url, 
+          class: "form-control shadow-sm rounded",
+          placeholder: "Enter an image url" %>
       </div>
 
       <div class="form-group row justify-content-center">

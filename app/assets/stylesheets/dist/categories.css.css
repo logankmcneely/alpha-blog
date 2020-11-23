@@ -1,0 +1,13 @@
+.category-image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 140px;
+  width: 100%;
+}
+
+.category-info {
+  height: 140px;
+  display: flex;
+  align-items: center;
+}

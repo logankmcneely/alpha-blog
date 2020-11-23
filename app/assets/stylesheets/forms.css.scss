@@ -9,7 +9,7 @@
   }
 
   .form-control {
-    background-color: $color-light-shade;
+    background-color: $color-light-tint;
     
     &:hover {
       border-color: $color-blue;
@@ -23,30 +23,21 @@
   }
 
   .custom-select {
-    background-color: $color-light-shade;
+    background-color: $color-light-tint;
     option:checked, option:hover {
       background-color: $color-blue;
       color: $color-light;
     }
+    &:hover {
+      border-color: $color-blue;
+    }
   }
-
-}
-
-// Remove Action Text image upload button
-// .trix-button-group--file-tools {
-//   display: none !important;
-// }
-
-.trix-button-row { 
-  display: flex !important; 
-  flex-wrap: wrap !important; 
-  justify-content: space-between !important; 
-} 
-
-.trix-button-group {
-  margin-left: 0 !important;
 }
 
 .article-description-input {
   min-height: 400px;
+  background-color: $color-light-tint;
+  &:hover {
+    border-color: $color-blue;
+  }
 }

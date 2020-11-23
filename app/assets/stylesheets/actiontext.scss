@@ -8,6 +8,8 @@
 // We need to override trix.css’s image gallery styles to accommodate the
 // <action-text-attachment> element we wrap around attachments. Otherwise,
 // images in galleries will be squished by the max-width: 33%; rule.
+@import 'theme';
+
 .trix-content {
   .attachment-gallery {
     > action-text-attachment,
@@ -32,5 +34,27 @@
       padding: 0 !important;
       max-width: 100% !important;
     }
+  }
+}
+
+// Remove Action Text image upload button
+// .trix-button-group--file-tools {
+//   display: none !important;
+// }
+
+.trix-button-row { 
+  display: flex !important; 
+  flex-wrap: wrap !important; 
+  justify-content: space-between !important; 
+} 
+
+.trix-button-group {
+  margin-left: 0 !important;
+}
+
+.trix-button {
+  background-color: $color-light !important;
+  &:hover {
+    background-color: $color-light-tint !important;
   }
 }

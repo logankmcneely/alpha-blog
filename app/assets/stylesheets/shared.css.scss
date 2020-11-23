@@ -44,7 +44,7 @@
 
   i {
     font-size: 1.3em;
-    color: $color-dark-red;
+    color: $color-blue;
   }
 
   &:hover {
@@ -67,6 +67,10 @@
 // Shared horizontal line for dropdown and navigation
 .menu-divider {
   border-color: rgba(89, 28, 11, 0.25);
+}
+
+.display-4 {
+  letter-spacing: 0.15em;
 }
 
 @media (max-width: 767.98px) {
