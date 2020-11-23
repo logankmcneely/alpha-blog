@@ -1,5 +1,5 @@
 <div class="row justify-content-center">
-  <div class="col-sm-11 col-lg-9">
+  <div class="col-sm-11 col-lg-8">
     <% @articles.each_with_index do |article, index| %>
       <div class="card-container menu-anchor-parent bg-color-light-shade rounded shadow-sm mb-4 p-1" data-link="<%= article_path(article) %>">
 
@@ -31,14 +31,15 @@
           <div class="article-info col-md-7 bg-color-light-tint p-4 <%= "text-md-right" if index.odd? %>">
             <div class="row">
               <div class="col-12">
-                <h5 class="font-color-blue mb-0"><%= article.title %></h5>
+                <h5 class="font-color-blue"><%= article.title %></h5>
               </div>
               <div class="col-12">
-                <%= link_to article.user, class: "link card-subtitle mb-2" do %>
-                  <i><%= article.user.username %></i>
+                <%= link_to article.user, class: "col link mb-2" do %>
+                  <%= image_tag "#{article.user.image_url}", class: "thumbnail rounded-circle" %> 
+                  <span class=""><i><%= article.user.username %></i></span>
                 <% end %>
               </div>
-              <div class="col-12">
+              <div class="col-12 font-color-dark">
                 <small><%= article.created_at.strftime("%b %-d, %Y %l:%M %P")%></small>
                   <% if article.created_at != article.updated_at %>
                     <small>&nbsp;(updated <%= distance_of_time_in_words_to_now(article.updated_at)%> ago)</small>

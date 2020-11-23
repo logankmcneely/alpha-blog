@@ -41,7 +41,7 @@ $(document).on('turbolinks:load', function () {
 $(document).on('turbolinks:load', function () {
   $(".card-container")
     .on('click', function(e){ 
-      if (!$(e.target).is("i") && !$(e.target).is("a"))
+      if (!$(e.target).is("i") && !$(e.target).is("a") && !$(e.target).is(".thumbnail"))
         window.location = $(this).data('link');
     })
     .on('mouseenter', function() {

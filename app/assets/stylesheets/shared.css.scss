@@ -122,3 +122,9 @@
     font-weight: bold;
   }
 }
+
+.thumbnail {
+  height: 32px;
+  width: 32px;
+  object-fit: cover;
+}
