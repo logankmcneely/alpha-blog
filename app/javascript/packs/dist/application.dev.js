@@ -40,7 +40,7 @@ $(document).on('turbolinks:load', function () {
 }); // Clickable Category cards with styling on hover
 
 $(document).on('turbolinks:load', function () {
-  $(".category-container").on('click', function (e) {
+  $(".card-container").on('click', function (e) {
     if (!$(e.target).is("i") && !$(e.target).is("a")) window.location = $(this).data('link');
   }).on('mouseenter', function () {
     $(this).addClass("shadow-lg");

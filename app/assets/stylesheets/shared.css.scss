@@ -18,11 +18,14 @@
     background-color: $color-dark-red;
     color: $color-light;
   }
+  &:first-child {
+    margin-left: 0 !important;
+  }
 }
 
 // Shared link styles
 .link {
-  color: $color-dark-red;
+  color: $color-blue;
 
   &:hover {
     color: $color-red;
@@ -38,8 +41,8 @@
 // Anchored dropdown menus for admin and user access
 .menu-anchor {
   position: absolute;
-  top: 24px;
-  right: 24px;
+  top: 12px;
+  right: 12px;
   z-index: 100;
 
   i {
@@ -97,5 +100,13 @@
 @media (min-width: 768px) {
   .collapsed {
     display: none;
+  }
+}
+
+// Universal card container for categories/articles/bloggers
+.card-container {
+  &:hover {
+    cursor: pointer;
+    background-color: $color-light-tint;
   }
 }

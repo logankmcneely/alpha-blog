@@ -11,10 +11,3 @@
   display: flex;
   align-items: center;
 }
-
-.category-container {
-  &:hover {
-    cursor: pointer;
-    background-color: $color-light-tint;
-  }
-}

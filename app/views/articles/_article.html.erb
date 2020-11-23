@@ -1,9 +1,9 @@
-<% content_for :body_class, "articles-container" %>
-
 <div class="row justify-content-center">
   <div class="col-sm-11 col-lg-9">
     <% @articles.each do |article| %>
-      <div class="menu-anchor-parent bg-color-light-shade rounded shadow-sm mb-1 mt-0 mb-sm-4 p-3 p-sm-5">
+      <div class="card-container menu-anchor-parent bg-color-light-shade rounded shadow-sm mb-4 p-1" data-link="<%= article_path(article) %>">
+
+        <%# Menu dropdown for allowed users %>
         <% if logged_in? && (current_user == article.user || current_user.admin?) %>
           <%= link_to "#", { class: "menu-anchor dropdown-toggle dropdown-toggle-split options-dropdown", id:"dropdownMenuLink", role:"button", data: { toggle:"dropdown"}, aria: { haspopup:"true", expanded:"false"}}  do %>
             <%= fa_icon "ellipsis-v" %>
@@ -18,38 +18,45 @@
               <% end %>
           </div>
         <% end %>
-        <div class="row">
-          <div class="col">
-            <h3 class="card-title text-center mb-2 mt-4"><%= link_to article.title, article, class: "font-color-dark-red link" %></h5>
+
+        <div class="row no-gutters">
+
+          <%# Image Section %>
+          <div class="col-md-5">
+            <%= image_tag "#{article.image_url}", class: "article-image img-responsive" %> 
           </div>
-        </div>
-        <div class="row mb-1">
-          <div class="col text-center card-subtitle">
-            <%= link_to article.user, class: "link" do %>
-              <i><%= article.user.username %></i>
-            <% end %>
-          </div>
-        </div>
-        <div class="row mb-2">
-          <div class="col text-center font-italic card-subtitle">
-            <small><%= article.created_at.strftime("%b %-d, %Y %l:%M %P")%></small>
-            <% if article.created_at != article.updated_at %>
-              <small>(updated <%= distance_of_time_in_words_to_now(article.updated_at)%> ago)</small>
-            <% end %>
-          </div>
-        </div>
-        <% if article.categories.any? %>
-            <div class="row justify-content-center align-items-center mb-2">
-              <%= render article.categories %>
+
+
+          <%# Info Section %>
+          <div class="article-info col-md-7 bg-color-light-tint pr-4 pl-4">
+            <div class="row">
+              <div class="col-12">
+                <h4 class="font-color-dark"><%= article.title %></h4>
+              </div>
+              <div class="col-12">
+                <%= link_to article.user, class: "link card-subtitle mb-2" do %>
+                  <i><%= article.user.username %></i>
+                <% end %>
+              </div>
+              <div class="col-12">
+                <small><%= article.created_at.strftime("%b %-d, %Y %l:%M %P")%></small>
+                  <% if article.created_at != article.updated_at %>
+                    <small>&nbsp;(updated <%= distance_of_time_in_words_to_now(article.updated_at)%> ago)</small>
+                  <% end %>
+              </div>
+              <div class="col-12">
+                <% if article.categories.any? %>
+                  <div class="mb-2">
+                    <%= render article.categories %>
+                  </div>
+                <% end %>
+              </div>
             </div>
-          <% end %>
-        <div class="row mt-4">
-          <div class="col">
-            <p class="pl-4 pr-4 article-desciption">
-              <%= truncate(strip_tags(article.description.to_s), length: 450) { link_to "Continue", article, class: "link" } %>
-            </p>
+
           </div>
         </div>
+
+
       </div>
     <% end %>
   </div>
