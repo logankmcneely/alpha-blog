@@ -1,3 +1,5 @@
-<div class="apple_pagination mt-2 mb-2 shadow-sm">
-  <%= will_paginate obj, :container => false %>
-</div>
+<% if obj.total_pages > 1 %>
+  <div class="apple_pagination mt-2 mb-2 shadow-sm">
+    <%= will_paginate obj, :container => false %>
+  </div>
+<% end %>

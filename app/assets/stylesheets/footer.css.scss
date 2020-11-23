@@ -3,8 +3,12 @@
 #sticky-footer {
   flex-shrink: none;
 
-  a:hover {
-    text-decoration: none;
-    color: $color-red;
+  a {
+    color: $color-blue;
+
+    &:hover {
+      text-decoration: none;
+      color: $color-red;
+    }
   }
 }

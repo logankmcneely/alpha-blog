@@ -6,7 +6,7 @@
 
       <%= form_with(model: @category, class: "bg-color-light shadow-lg rounded", id: "form", local: true) do |f| %>
 
-      <h1 class="text-center"><%= request.path == new_category_path ? "Create a New Category" : "Edit Category" %></h1>
+      <h1 class="text-center"><%= request.path == new_category_path ? "Create Category" : "Edit Category" %></h1>
 
       <div class="form-group col mt-4 mb-3">
         <%= f.label "Category name", class: "font-color-blue" %>
