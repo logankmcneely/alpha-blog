@@ -64,9 +64,10 @@
   font-size: 2.5em;
   color: $color-light-tint;
   -webkit-text-stroke: 2px $color-red;
-  &:hover {
-    color: $color-red;
-    transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0.0s;
+  &:active {
+    transform: scale(1.7);
+    transition: all 0.5s ease 0.0s;
   }
 }
 

@@ -50,6 +50,8 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def link_to "link text...", parent_child_path(@parent, @child)
+
   private
 
   def set_user
