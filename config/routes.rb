@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
+  get 'like_article', to: 'articles#like'
   resources :articles
   resources :categories
-  resources :likes, only: [:create, :destroy]
   resources :users, except: [:new]
 end

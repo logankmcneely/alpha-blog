@@ -32,7 +32,7 @@
         </div>
       </div>
 
-
+      <%# Article User %>
       <div class="row mb-1">
         <div class="col text-center card-subtitle">
           <%= link_to @article.user, class: "col link mb-2" do %>
@@ -42,7 +42,7 @@
         </div>
       </div>
 
-
+      <%# Article Date %>
       <div class="row mb-2">
         <div class="col text-center font-italic card-subtitle">
           <small><%= @article.created_at.strftime("%b %-d, %Y %l:%M %P")%></small>
@@ -51,6 +51,8 @@
           <% end %>
         </div>
       </div>
+
+      <%# Article Categories %>
       <% if @article.categories.any? %>
         <div class="row justify-content-center align-items-center mb-5">
           <%= render @article.categories %>
@@ -61,18 +63,16 @@
           <%= @article.description %>
         </div>
       </div>
-      <% if logged_in? %>
 
-        <% if !@user_liked_id %>
-          <div class="row">
-            <%= link_to  "Like", likes_path(user_id: current_user.id, article_id: @article.id), method: :post %>
-          </div>
-        <% else %>
-          <div class="row">
-            <%= link_to  "Unike", like_path(id: @user_liked_id), method: :delete %>
-          </div>
-        <% end %>
+      <%# Like article section if user logged in %>
+      <% if logged_in? %>
+        <div class="row justify-content-center">
+          <%= link_to like_article_path(user_id: current_user.id, article_id: @article.id), method: :get, remote: true do %>
+            <% fa_icon "heart", class: "like #{"liked" if @user_liked_id}" %>
+          <% end %>
+        </div>
       <% end %>
+
     </div>
   </div>
 </div>

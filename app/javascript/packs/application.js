@@ -51,3 +51,12 @@ $(document).on('turbolinks:load', function () {
       $(this).removeClass("shadow-lg");
     });
 });
+
+// Toggle like button
+$(document).on('turbolinks:load', function () {
+  $(".like")
+    .on('click', function(e){ 
+      $(this).toggleClass("liked");
+    })
+});
+

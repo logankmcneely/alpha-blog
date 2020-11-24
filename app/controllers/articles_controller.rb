@@ -5,7 +5,9 @@ class ArticlesController < ApplicationController
   before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def show
-    @user_liked_id = @article.liked_by_user?(current_user.id)
+    if logged_in?
+      @user_liked_id = @article.liked_by_user?(current_user.id)
+    end
   end
 
   def index
@@ -40,6 +42,16 @@ class ArticlesController < ApplicationController
   def destroy
     @article.destroy
     redirect_to articles_path
+  end
+
+  def like
+    # Toggles like status. If like already existed, delete it, else create a new like
+    like_status = Article.find(params[:article_id]).liked_by_user?(params[:user_id])
+    if like_status
+      Like.find(like_status).destroy
+    else
+      Like.create(article_id: params[:article_id], user_id: params[:user_id])
+    end
   end
 
   private

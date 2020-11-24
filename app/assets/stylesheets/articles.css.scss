@@ -59,3 +59,17 @@
 .article-show-container {
   background-color: $color-light-tint !important;
 }
+
+.like {
+  font-size: 2.5em;
+  color: $color-light-tint;
+  -webkit-text-stroke: 2px $color-red;
+  &:hover {
+    color: $color-red;
+    transition: all 0.3s ease 0s;
+  }
+}
+
+.liked {
+  color: $color-red;
+}
