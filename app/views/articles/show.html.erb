@@ -1,7 +1,15 @@
+<% content_for :body_class, "article-show-container" %>
+
+<%# Article Banner Image %>
+<% if @article.image_url.present? %>
+  <%= image_tag  @article.image_url, class: "article-show-header-image" %>
+<% end %>
 
 <div class="row justify-content-center">
-  <div class="col-sm-11 col-lg-9 mt-md-5">
-    <div class="menu-anchor-parent bg-color-light-shade rounded shadow mb-0 mt-0 mb-sm-4 mt-sm-4 p-5">
+  <div class="col-sm-11 col-lg-8 mt-md-3">
+    <div class="menu-anchor-parent mb-0 mt-0 mb-sm-4 mt-sm-4 p-5">
+
+      <%# Menu options for article owner and admin %>
       <% if logged_in? && (current_user == @article.user || current_user.admin?) %>
         <%= link_to "#", { class: "menu-anchor dropdown-toggle dropdown-toggle-split options-dropdown", id:"dropdownMenuLink", role:"button", data: { toggle:"dropdown"}, aria: { haspopup:"true", expanded:"false"}}  do %>
           <%= fa_icon "ellipsis-v" %>
@@ -16,18 +24,25 @@
             <% end %>
         </div>
       <% end %>
+
+      <%# Article Title %>
       <div class="row">
         <div class="col">
-          <h3 class="card-title font-color-dark-red text-center mb-2 mt-4"><%= @article.title %></h5>
+          <h1 class="card-title text-center font-weight-boldest mb-2 mt-4"><%= @article.title %></h1>
         </div>
       </div>
+
+
       <div class="row mb-1">
         <div class="col text-center card-subtitle">
-          <%= link_to @article.user, class: "link" do %>
-            <i><%= @article.user.username %></i>
+          <%= link_to @article.user, class: "col link mb-2" do %>
+            <%= image_tag "#{@article.user.image_url}", class: "thumbnail rounded-circle" %> 
+            <span class=""><i><%= @article.user.username %></i></span>
           <% end %>
         </div>
       </div>
+
+
       <div class="row mb-2">
         <div class="col text-center font-italic card-subtitle">
           <small><%= @article.created_at.strftime("%b %-d, %Y %l:%M %P")%></small>

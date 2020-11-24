@@ -22,9 +22,8 @@
         <div class="row no-gutters <%= "flex-row-reverse" if index.odd? %>">
 
           <%# Image Section %>
-          <div class="col-md-5">
-            <%= image_tag "#{article.image_url}", class: "article-image img-responsive" %> 
-          </div>
+          <%= image_tag "#{article.image_url}", class: "col-md-5 article-image img-responsive", onerror: 'this.error=null;this.src="https://placekitten.com/640/360"' %> 
+          
 
 
           <%# Info Section %>
