@@ -61,6 +61,18 @@
           <%= @article.description %>
         </div>
       </div>
+      <% if logged_in? %>
+
+        <% if !@user_liked_id %>
+          <div class="row">
+            <%= link_to  "Like", likes_path(user_id: current_user.id, article_id: @article.id), method: :post %>
+          </div>
+        <% else %>
+          <div class="row">
+            <%= link_to  "Unike", like_path(id: @user_liked_id), method: :delete %>
+          </div>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
