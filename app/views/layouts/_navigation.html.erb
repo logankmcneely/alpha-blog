@@ -29,10 +29,16 @@
               Articles&nbsp;<%= fa_icon "caret-down"%>
             </a>
             <div class="dropdown-menu shadow-lg bg-color-light" aria-labelledby="navbarDropdown">
-              <%= link_to  "View", articles_path, class: "dropdown-item" %>
+              <%= link_to articles_path, class: "dropdown-item" do %>
+                <%= fa_icon "pagelines", class:"nav-icon" %>&nbsp;&nbsp;View
+              <% end %>
               <% if logged_in? %>
-                <%= link_to  "Liked", "/users/#{current_user.id}/likes", class: "dropdown-item" %>
-                <%= link_to  "Create", new_article_path, class: "dropdown-item" %>
+                <%= link_to "/users/#{current_user.id}/likes", class: "dropdown-item" do %>
+                  <%= fa_icon "heart", class:"nav-icon" %>&nbsp;&nbsp;Liked
+                <% end %>
+                <%= link_to new_article_path, class: "dropdown-item" do %>
+                  <%= fa_icon "pencil", class:"nav-icon" %>&nbsp;&nbsp;Create
+                <% end %>
               <% end %>
             </div>
           </li>
@@ -42,7 +48,7 @@
             <%= link_to  "Articles", articles_path, class: "nav-link" %>
           </li>
           <li class="nav-item collapsed">
-            <%= link_to  "Liked", "/users/#{current_user.id}/likes", class: "nav-link" %>
+            <%= link_to  "Liked Articles", "/users/#{current_user.id}/likes", class: "nav-link" %>
           </li>
           <li class="nav-item collapsed">
             <%= link_to  "Create Article", new_article_path, class: "nav-link" %>
