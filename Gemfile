@@ -57,3 +57,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'will_paginate', '~> 3.1.0'
 gem 'font-awesome-rails'
 gem 'mini_magick', '~> 4.9', '>= 4.9.2'
+gem 'devise'
+gem 'devise-bootstrap-views', '~> 1.0'

@@ -4,7 +4,7 @@
       <div class="card-container menu-anchor-parent bg-color-light-shade rounded shadow-sm mb-4 p-1" data-link="<%= article_path(article) %>">
 
         <%# Menu dropdown for allowed users %>
-        <% if logged_in? && (current_user == article.user || current_user.admin?) %>
+        <% if user_signed_in? && (current_user == article.user || current_user.admin?) %>
           <%= link_to "#", { class: "menu-anchor dropdown-toggle dropdown-toggle-split options-dropdown", id:"dropdownMenuLink", role:"button", data: { toggle:"dropdown"}, aria: { haspopup:"true", expanded:"false"}}  do %>
             <%= fa_icon "ellipsis-v" %>
           <% end %>
@@ -35,7 +35,7 @@
               <div class="col-12">
                 <%= link_to article.user, class: "col link mb-2" do %>
                   <%= image_tag "#{article.user.image_url}", class: "thumbnail rounded-circle" %> 
-                  <span class=""><i><%= article.user.username %></i></span>
+                  <span class=""><i><%= article.user.full_name %></i></span>
                 <% end %>
               </div>
               <div class="col-12 font-color-dark">

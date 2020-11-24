@@ -9,7 +9,7 @@
         <div class="card-container menu-anchor-parent bg-color-light-shade rounded shadow-sm mb-4 p-1" data-link="<%= category_path(category) %>">
           
           <%# Menu dropdown for admin %>
-          <% if logged_in? && current_user.admin? %>
+          <% if user_signed_in? && current_user.admin? %>
             <%= link_to "#", { class: "menu-anchor rounded dropdown-toggle dropdown-toggle-split options-dropdown", id:"dropdownMenuLink", role:"button", data: { toggle:"dropdown"}, aria: { haspopup:"true", expanded:"false"}}  do %>
               <%= fa_icon "ellipsis-v" %>
             <% end %>

@@ -1,21 +1,14 @@
 class User < ApplicationRecord
-  before_save { self.email = email.downcase}
-  has_many :articles, dependent: :destroy
-  has_many :likes
-  has_many :liked_articles, through: :likes, source: :article
-  validates :username, 
-    presence: true, 
-    uniqueness: { case_sensitive: false }, 
-    length: { minimum: 3, maximum: 25 }
-  validates :email, 
-    presence: true, 
-    uniqueness: { case_sensitive: false }, 
-    length: { maximum: 105 },
-    format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i }
-  has_secure_password
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
 
-  def self.get_categories(user_id)
-    Category.joins(:articles).group('categories.id').where(articles:{ user_id: user_id })
+  def full_name
+    if first_name? || last_name?
+      "#{first_name.capitalize} #{last_name.capitalize}"
+    else
+      "User"
+    end
   end
-
 end

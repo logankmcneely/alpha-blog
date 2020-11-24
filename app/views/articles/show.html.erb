@@ -10,7 +10,7 @@
     <div class="menu-anchor-parent mb-0 mt-0 mb-sm-4 mt-sm-4 p-5">
 
       <%# Menu options for article owner and admin %>
-      <% if logged_in? && (current_user == @article.user || current_user.admin?) %>
+      <% if user_signed_in? && (current_user == @article.user || current_user.admin?) %>
         <%= link_to "#", { class: "menu-anchor dropdown-toggle dropdown-toggle-split options-dropdown", id:"dropdownMenuLink", role:"button", data: { toggle:"dropdown"}, aria: { haspopup:"true", expanded:"false"}}  do %>
           <%= fa_icon "ellipsis-v" %>
         <% end %>
@@ -37,7 +37,7 @@
         <div class="col text-center card-subtitle">
           <%= link_to @article.user, class: "col link mb-2" do %>
             <%= image_tag "#{@article.user.image_url}", class: "thumbnail rounded-circle" %> 
-            <span class=""><i><%= @article.user.username %></i></span>
+            <span class=""><i><%= @article.user.full_name %></i></span>
           <% end %>
         </div>
       </div>
@@ -65,7 +65,7 @@
       </div>
 
       <%# Like article section if user logged in %>
-      <% if logged_in? %>
+      <% if user_signed_in? %>
         <div class="row justify-content-center">
           <%= link_to like_article_path(user_id: current_user.id, article_id: @article.id), method: :get, remote: true do %>
             <% fa_icon "heart", class: "like #{"liked" if @user_liked_id}" %>

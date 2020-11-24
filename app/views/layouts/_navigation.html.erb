@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-light bg-color-light border-bottom">
   <div class="container">
 
-    <%= link_to  "ALPHA BLOG", root_path, class: "navbar-brand", id: "logo" %>
+    <%= link_to  "Alpha Blog", root_path, class: "navbar-brand", id: "logo" %>
    
 
     <a id="nav-collapse-button" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,7 +15,7 @@
 
         <%# ARTICLES SECTION %>
         <%# If not logged in, don't show the drop down to create an article, but allow user to view articles %>
-        <% if !logged_in? %>
+        <% if !user_signed_in? %>
           <li class="nav-item">
             <%= link_to  "Articles", articles_path, class: "nav-link" %>
           </li>
@@ -32,7 +32,7 @@
               <%= link_to articles_path, class: "dropdown-item" do %>
                 <%= fa_icon "pagelines", class:"nav-icon" %>&nbsp;&nbsp;View
               <% end %>
-              <% if logged_in? %>
+              <% if user_signed_in? %>
                 <%= link_to "/users/#{current_user.id}/likes", class: "dropdown-item" do %>
                   <%= fa_icon "heart", class:"nav-icon" %>&nbsp;&nbsp;Liked
                 <% end %>
@@ -63,7 +63,7 @@
 
         <%# CATEGORIES SECTION %>
         <%# If admin show dropdown that includes create a new category %>
-        <% if logged_in? && current_user.admin? %>
+        <% if user_signed_in? && current_user.admin? %>
 
           <%# Expanded Categories dropdown on larger screens %>
           <li class="nav-item dropdown expanded">
@@ -72,7 +72,7 @@
             </a>
             <div class="dropdown-menu shadow-lg bg-color-light" aria-labelledby="navbarDropdown">
               <%= link_to  "View Categories", categories_path, class: "dropdown-item" %>
-              <% if logged_in? && current_user.admin? %>
+              <% if user_signed_in? && current_user.admin? %>
                 <%= link_to  "Create Category", new_category_path, class: "dropdown-item" %>
               <% end %>
             </div>
@@ -103,18 +103,18 @@
 
         <%# USER OPTIONS SECTION %>
         <%# If user is logged in show dropdown that includes user account options %>
-        <% if logged_in? %>
+        <% if user_signed_in? %>
 
           <%# Expanded User dropdown on larger screens %>
           <li class="nav-item dropdown expanded">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= current_user.username %> <%= "(Admin)" if current_user.admin? %>&nbsp;<%= fa_icon "caret-down" %>
+              <%= current_user.full_name %> <%= "(Admin)" if current_user.admin? %>&nbsp;<%= fa_icon "caret-down" %>
             </a>
             <div class="dropdown-menu dropdown-menu-right shadow-lg bg-color-light" aria-labelledby="navbarDropdown">
               <%= link_to current_user, class: "dropdown-item" do %>
                 <%= fa_icon "user", class:"nav-icon" %>&nbsp;&nbsp;View Profile
               <% end %>
-              <%= link_to edit_user_path(current_user), class: "dropdown-item" do %>
+              <%= link_to edit_user_registration_path(current_user), class: "dropdown-item" do %>
                 <%= fa_icon "edit", class:"nav-icon" %>&nbsp;&nbsp;Edit Profile
               <% end %>
               
@@ -128,7 +128,7 @@
               <% end %>
 
               <div class="dropdown-divider menu-divider"></div>
-              <%= link_to logout_path, class: "dropdown-item", method: :delete do %>
+              <%= link_to destroy_user_session_path, class: "dropdown-item", method: :delete do %>
                 <%= fa_icon "sign-out", class:"nav-icon" %>&nbsp;&nbsp;Logout
               <% end %>
             </div>
@@ -139,7 +139,7 @@
             <%= link_to "View Profile", current_user, class: "nav-link" %>
           </li>
           <li class="nav-item collapsed">
-            <%= link_to "Edit Profile", edit_user_path(current_user), class: "nav-link" %>
+            <%= link_to "Edit Profile", edit_user_registration_path(current_user), class: "nav-link" %>
           </li>
 
           <%# Prevent admin from deleting themself %>
@@ -153,23 +153,23 @@
 
           <div class="dropdown-divider collapsed menu-divider"></div>
           <li class="nav-item collapsed">
-            <%= link_to "Logout", logout_path, class: "nav-link" %>
+            <%= link_to "Logout", destroy_user_session_path, class: "nav-link" %>
           </li>
 
         <%# If user is not logged in show options to sign or log in %>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login", login_path, class: "nav-link mr-2" %>
+            <%= link_to "Login", new_user_session_path, class: "nav-link mr-2" %>
           </li>
 
           <%# Expanded user sign in button on larger screens %>
           <li class="nav-item expanded">
-            <%= link_to "Sign Up", signup_path, class: "sign-up shadow-sm btn btn-sm bg-color-red font-color-light"%>
+            <%= link_to "Sign Up", new_user_registration_path, class: "sign-up shadow-sm btn btn-sm bg-color-red font-color-light"%>
           </li>
 
           <%# Collapsed user sign in link on smaller screens/collapsed menu %>
           <li class="nav-item collapsed">
-            <%= link_to "Sign Up", signup_path, class: "nav-link"%>
+            <%= link_to "Sign Up", new_user_registration_path, class: "nav-link"%>
           </li>
           
         <% end %>

@@ -17,7 +17,8 @@
 </head>
 
 <body class="d-flex flex-column ">
-  <%= render 'layouts/navigation' %>
+  <%= render "layouts/navigation" %>
+  <%= render "layouts/messages" %>
   <div class= "body-container <%= content_for :body_class %>">
     <%= yield %>
   </div>

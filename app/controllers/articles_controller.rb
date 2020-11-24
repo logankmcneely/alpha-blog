@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def show
-    if logged_in?
+    if user_signed_in?
       @user_liked_id = @article.liked_by_user?(current_user.id)
     end
   end
