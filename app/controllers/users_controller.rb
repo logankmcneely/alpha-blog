@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :likes]
   before_action :require_user, only: [:edit, :update, :destroy]
-  before_action :require_same_user, only: [:edit, :update, :destroy]
+  before_action :require_same_user, only: [:edit, :update, :destroy, :likes]
 
   def index
     # Returns all categories for admin and only categories with articles for users
@@ -50,7 +50,9 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
-  def link_to "link text...", parent_child_path(@parent, @child)
+  def likes
+    @articles = @user.liked_articles.order('created_at DESC').paginate(page: params[:page], per_page: 10)
+  end
 
   private
 
@@ -64,7 +66,6 @@ class UsersController < ApplicationController
 
   def require_same_user
     if current_user != @user && !current_user.admin?
-      flash[:alert] = "You can only modify your own account"
       redirect_to @user
     end
   end

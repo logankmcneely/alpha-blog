@@ -3,7 +3,7 @@ class Article < ApplicationRecord
   has_many :article_categories
   has_many :categories, through: :article_categories
   has_many :likes
-  has_many :users, through: :likes
+  has_many :liked_by, through: :likes, source: :user
   validates :title, presence: true, length: { minimum: 4, maximum: 100 }
   validates :description, presence: true
   has_rich_text :description

@@ -1,0 +1,10 @@
+<h2 class="text-center pt-3 pb-3 bg-color-light font-color-red font-weight-bold shadow-sm"><%= @user.username%>'s Liked Articles</h2>
+<div class="my-4"></div>
+
+<% if @articles.count > 0 %>
+  <%= render 'articles/article' %>
+  <div class="my-4"></div>
+  <%= render 'shared/pagination', obj: @articles %>
+<% else %>
+  <h5 class="text-center font-italic font-weight-light mt-3">This user has no liked articles at this time.</h5>
+<% end %>
