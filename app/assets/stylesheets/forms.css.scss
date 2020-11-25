@@ -31,11 +31,19 @@
       border-color: $color-blue;
     }
   }
+
+  a {
+    color: $color-blue;
+    &:hover {
+      text-decoration: none;
+      color: $color-red;
+    }
+  }
 }
 
 .article-description-input {
   min-height: 400px;
-  background-color: $color-light-tint;
+  background-color: $color-light-tint !important;
   &:hover {
     border-color: $color-blue;
   }

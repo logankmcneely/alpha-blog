@@ -53,4 +53,12 @@ $(document).on('turbolinks:load', function () {
   $(".like").on('click', function (e) {
     $(this).toggleClass("liked");
   });
+}); // Toggle like button
+
+$(document).on('turbolinks:load', function () {
+  window.setTimeout(function () {
+    $(".message-anchor").slideUp(500, function () {
+      $(this).remove();
+    });
+  }, 3000);
 });

@@ -1,37 +1,66 @@
-<h1><%= t('.title', resource: resource_name.to_s.humanize) %></h1>
+<% content_for :body_class, "page-container" %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= bootstrap_devise_error_messages! %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-md-8 col-lg-6 bg-color-light rounded p-5 mt-md-5 mb-md-5">
 
-  <div class="form-group">
-    <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
+      <h1 class="text-center font-color-blue"><%= t('.title', resource: resource_name.to_s.humanize) %></h1>
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "forms" }) do |f| %>
+        <%= bootstrap_devise_error_messages! %>
+
+        <div class="form-group">
+          <%= f.label :email, class: "font-color-blue"  %>
+          <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control shadow rounded' %>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-md-6">
+            <%= f.label "First Name", class: "font-color-blue"  %>
+            <%= f.text_field :first_name, class: 'form-control shadow rounded' %>
+          </div>
+          
+
+          <div class="form-group col-md-6">
+            <%= f.label "Last Name", class: "font-color-blue"  %>
+            <%= f.text_field :last_name, class: 'form-control shadow rounded' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+            <%= f.label "Profile picture", class: "font-color-blue"  %>
+            <%= f.text_field :image_url, class: 'form-control shadow rounded',
+              placeholder: "ex: https://i.imgur.com/bfisKOG.png" %>
+          </div>
+
+        <div class="form-group">
+          <%= f.label :password, class: "font-color-blue"  %>
+          <%= f.password_field :password, autocomplete: 'new-password', class: 'form-control shadow rounded' %>
+
+          <small class="form-text text-muted"><%= t('.leave_blank_if_you_don_t_want_to_change_it') %></small>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password_confirmation, class: "font-color-blue"  %>
+          <%= f.password_field :password_confirmation, autocomplete: 'new-password', class: 'form-control shadow rounded'  %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :current_password, class: "font-color-blue"  %>
+          <%= f.password_field :current_password, autocomplete: 'current-password', class: 'form-control shadow rounded' %>
+
+          <small class="form-text text-muted"><%= t('.we_need_your_current_password_to_confirm_your_changes') %></small>
+        </div>
+
+        <div class="form-group">
+          <%= f.submit t('.update'), class: 'btn bg-color-blue font-color-light shadow-sm rounded' %>
+        </div>
+
+        <p><%= t('.unhappy') %>? <%= link_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %>.</p>
+        <%= link_to t('.back'), :back %>
+
+      <% end %>
+
+    </div>
   </div>
-
-  <div class="form-group">
-    <%= f.label :password %>
-    <%= f.password_field :password, autocomplete: 'new-password', class: 'form-control' %>
-
-    <small class="form-text text-muted"><%= t('.leave_blank_if_you_don_t_want_to_change_it') %></small>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, autocomplete: 'new-password', class: 'form-control'  %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :current_password %>
-    <%= f.password_field :current_password, autocomplete: 'current-password', class: 'form-control' %>
-
-    <small class="form-text text-muted"><%= t('.we_need_your_current_password_to_confirm_your_changes') %></small>
-  </div>
-
-  <div class="form-group">
-    <%= f.submit t('.update'), class: 'btn btn-primary' %>
-  </div>
-<% end %>
-
-<p><%= t('.unhappy') %>? <%= link_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %>.</p>
-
-<%= link_to t('.back'), :back %>
+</div>

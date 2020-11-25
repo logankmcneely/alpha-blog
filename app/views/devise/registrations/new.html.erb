@@ -31,11 +31,14 @@
         <div class="form-group col">
           <%= f.submit t('.sign_up'), class: 'btn bg-color-blue font-color-light shadow-sm rounded' %>
         </div>
+
+        <div class="col">
+          <%= render 'devise/shared/links' %>
+        </div>
+
       <% end %>
       
-      <div class="col">
-        <%= render 'devise/shared/links' %>
-      </div>
+      
 
     </div>
   </div>

@@ -4,37 +4,37 @@
 
       <%= render  "shared/errors", obj: @article %>
 
-      <%= form_with(model: @article, class: "bg-color-light shadow-lg rounded", id: "form", local: true) do |f| %>
+      <%= form_with(model: @article, class: "forms bg-color-light shadow-lg rounded p-5", local: true) do |f| %>
 
-      <h1 class="text-center"><%= request.path == new_article_path ? "Create Article" : "Edit Article" %></h1>
+      <h1 class="text-center font-color-blue"><%= request.path == new_article_path ? "Create Article" : "Edit Article" %></h1>
 
-      <div class="form-group col">
+      <div class="form-group">
         <%= f.label :title, class: "font-color-blue" %>
         <%= f.text_field :title, 
           class: "form-control shadow-sm rounded" %>
       </div>
 
-      <div class="form-group col">
+      <div class="form-group">
         <%= f.label "Image URL", class: "font-color-blue" %>
         <%= f.text_field :image_url, 
           class: "form-control shadow-sm rounded",
           placeholder: "ex: https://i.imgur.com/bfisKOG.png" %>
       </div>
 
-      <div class="form-group col">
+      <div class="form-group">
         <%= f.label :description, class: "font-color-blue" %>
         <%= f.rich_text_area :description, class: "article-description-input shadow-sm rounded" %>
       </div>
 
-      <div class="form-group col">
+      <div class="form-group">
         <%= f.label "Category", class: "font-color-blue" %>
           <%= f.collection_select(:category_ids, Category.all, :id, :name,
             { prompt: false }, { multiple: true, class: "custom-select shadow-sm rounded" } ) %>
       </div>
 
-      <div class="form-group col">
+      <div class="form-group">
         <%= f.submit class: "btn bg-color-blue font-color-light shadow-sm rounded" %>
-        <%= link_to "Cancel", articles_path, class: "btn btn-danger ml-1 shadow-sm rounded bg-color-red" %>
+        <%= link_to "Cancel", articles_path, class: "ml-2" %>
       </div>
       <% end %>
     </div>
