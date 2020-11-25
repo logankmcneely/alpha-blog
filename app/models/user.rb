@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  has_many :articles, dependent: :destroy
+  has_many :likes
+  has_many :liked_articles, through: :likes, source: :article
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -11,4 +15,9 @@ class User < ApplicationRecord
       "User"
     end
   end
+
+  def self.get_categories(user_id)
+    Category.joins(:articles).group('categories.id').where(articles:{ user_id: user_id })
+  end
+  
 end

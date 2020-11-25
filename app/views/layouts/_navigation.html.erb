@@ -25,19 +25,19 @@
 
           <%# Expanded Articles dropdown on larger screens %>
           <li class="nav-item dropdown expanded">
-            <a class="nav-link dropdown-toggle <%= "active" if request.path == articles_path || new_article_path || like_article_path %>" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Articles&nbsp;<%= fa_icon "caret-down"%>
             </a>
             <div class="dropdown-menu shadow-lg bg-color-light" aria-labelledby="navbarDropdown">
               <%= link_to articles_path, class: "dropdown-item" do %>
-                <span class= "<%= "active" if request.path == articles_path%>"><%= fa_icon "pagelines", class:"nav-icon" %>&nbsp;&nbsp;View</span>
+                <span class= "<%= "active" if request.path == articles_path%>"><%= fa_icon "list-alt", class:"nav-icon" %>&nbsp;&nbsp;View All</span>
               <% end %>
               <% if user_signed_in? %>
                 <%= link_to "/users/#{current_user.id}/likes", class: "dropdown-item" do %>
-                  <span class= "<%= "active" if request.path == like_article_path %>"><%= fa_icon "heart", class:"nav-icon" %>&nbsp;&nbsp;Liked</span>
+                  <span class= "<%= "active" if request.path == likes_path(current_user.id) %>"><%= fa_icon "heart", class:"nav-icon" %>&nbsp;&nbsp;View Liked</span>
                 <% end %>
                 <%= link_to new_article_path, class: "dropdown-item" do %>
-                  <span class= "<%= "active" if request.path == new_article_path%>"><%= fa_icon "pencil", class:"nav-icon" %>&nbsp;&nbsp;Create</span>
+                  <span class= "<%= "active" if request.path == new_article_path%>"><%= fa_icon "edit", class:"nav-icon" %>&nbsp;&nbsp;Create New</span>
                 <% end %>
               <% end %>
             </div>
@@ -71,25 +71,29 @@
               Categories&nbsp;<%= fa_icon "caret-down"%>
             </a>
             <div class="dropdown-menu shadow-lg bg-color-light" aria-labelledby="navbarDropdown">
-              <%= link_to  "View Categories", categories_path, class: "dropdown-item" %>
+              <%= link_to categories_path, class: "dropdown-item" do %>
+                <span class= "<%= "active" if request.path == categories_path%>"><%= fa_icon "list-alt", class:"nav-icon" %>&nbsp;&nbsp;View All</span>
+              <% end %>
               <% if user_signed_in? && current_user.admin? %>
-                <%= link_to  "Create Category", new_category_path, class: "dropdown-item" %>
+                <%= link_to new_category_path, class: "dropdown-item" do %>
+                  <span class= "<%= "active" if request.path == new_category_path%>"><%= fa_icon "plus-square", class:"nav-icon" %>&nbsp;&nbsp;Create New</span>
+                <% end %>
               <% end %>
             </div>
           </li>
 
           <%# Collapsed Categories links on smaller screens/collapsed menu %>
           <li class="nav-item collapsed">
-            <%= link_to  "Categories", categories_path, class: "nav-link" %>
+            <%= link_to  "Categories", categories_path, class: "nav-link #{"active" if request.path == categories_path}" %>
           </li>
           <li class="nav-item collapsed">
-            <%= link_to  "Create Category", new_category_path, class: "nav-link" %>
+            <%= link_to  "Create Category", new_category_path, class: "nav-link #{"active" if request.path == new_category_path}" %>
           </li>
 
         <%# If not admin, show link to view categories only %>
         <% else %>
           <li class="nav-item">
-            <%= link_to  "Categories", categories_path, class: "nav-link" %>
+            <%= link_to  "Categories", categories_path, class: "nav-link #{"active" if request.path == categories_path}" %>
           </li>
         <% end %>
 
@@ -112,10 +116,10 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right shadow-lg bg-color-light" aria-labelledby="navbarDropdown">
               <%= link_to current_user, class: "dropdown-item" do %>
-                <%= fa_icon "user", class:"nav-icon" %>&nbsp;&nbsp;View Profile
+                <span class="<%= "active" if request.path == user_path(current_user.id)  %>"><%= fa_icon "user", class:"nav-icon" %>&nbsp;&nbsp;View Profile</span>
               <% end %>
               <%= link_to edit_user_registration_path(current_user), class: "dropdown-item" do %>
-                <%= fa_icon "edit", class:"nav-icon" %>&nbsp;&nbsp;Edit Profile
+                <span class= "<%= "active" if request.path == edit_user_registration_path(current_user) %>"><%= fa_icon "edit", class:"nav-icon" %>&nbsp;&nbsp;Edit Profile</span>
               <% end %>
               
               <%# Prevent admin from deleting themself %>
@@ -136,10 +140,10 @@
 
           <%# Collapsed User links on smaller screens/collapsed menu %>
           <li class="nav-item collapsed">
-            <%= link_to "View Profile", current_user, class: "nav-link" %>
+            <%= link_to "View Profile", current_user, class: "nav-link #{"active" if request.path == user_path(current_user.id)}" %>
           </li>
           <li class="nav-item collapsed">
-            <%= link_to "Edit Profile", edit_user_registration_path(current_user), class: "nav-link" %>
+            <%= link_to "Edit Profile", edit_user_registration_path(current_user), class: "nav-link #{"active" if request.path == edit_user_registration_path(current_user.id)}" %>
           </li>
 
           <%# Prevent admin from deleting themself %>

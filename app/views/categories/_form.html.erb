@@ -1,30 +1,30 @@
-<div class="container">
+<div class="container p-0">
   <div class="row justify-content-center">
     <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6">
 
       <%= render  "shared/errors", obj: @category %>
 
-      <%= form_with(model: @category, class: "bg-color-light shadow-lg rounded", id: "form", local: true) do |f| %>
+      <%= form_with(model: @category, class: "bg-color-light forms pl-2 pr-2 pt-5 pb-5 p-sm-5", local: true) do |f| %>
 
       <h1 class="text-center"><%= request.path == new_category_path ? "Create Category" : "Edit Category" %></h1>
 
-      <div class="form-group col mt-4 mb-3">
+      <div class="form-group">
         <%= f.label "Category name", class: "font-color-blue" %>
         <%= f.text_field :name, 
           class: "form-control shadow-sm rounded",
           placeholder: "Enter a new category" %>
       </div>
 
-      <div class="form-group col mt-3 mb-5">
+      <div class="form-group">
         <%= f.label "Category image URL", class: "font-color-blue" %>
         <%= f.text_field :image_url, 
           class: "form-control shadow-sm rounded",
           placeholder: "Enter an image url" %>
       </div>
 
-      <div class="form-group row justify-content-center">
+      <div class="form-group">
         <%= f.submit class: "btn bg-color-blue font-color-light shadow-sm rounded" %>
-        <%= link_to  "Cancel", articles_path, class: "btn btn-danger ml-1 shadow-sm rounded bg-color-red" %>
+        <%= link_to  "Cancel", articles_path, class: "ml-1" %>
       </div>
 
       <% end %>

@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   resources :articles
   resources :categories
   resources :users, except: [:new]
-  get '/users/:id/likes', to: 'users#likes'
+  get '/users/:id/likes', to: 'users#likes', as: :likes
 end

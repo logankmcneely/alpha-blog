@@ -2,11 +2,12 @@
 
 // Background and centered content for forms/sign up
 .page-container {
-  background-image: asset-url('background1.jpg') !important;
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+  // background-image: asset-url('background1.jpg') !important;
+  // background-position: bottom;
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  // background-attachment: fixed;
+  background-color: $color-blue;
   display: flex;
   align-items: center;
   justify-content: center;

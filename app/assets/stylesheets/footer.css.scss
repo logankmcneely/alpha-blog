@@ -2,6 +2,8 @@
 
 #sticky-footer {
   flex-shrink: none;
+  border-color: rgba(0, 78, 124, 0.25);
+  border: 1px;
 
   a {
     color: $color-blue;
