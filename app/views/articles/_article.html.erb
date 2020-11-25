@@ -39,9 +39,6 @@
               </div>
               <div class="col-12 font-color-dark">
                 <small><%= article.created_at.strftime("%b %-d, %Y %l:%M %P")%></small>
-                  <% if article.created_at != article.updated_at && request.path != articles_path %>
-                    <small>&nbsp;(updated <%= distance_of_time_in_words_to_now(article.updated_at)%> ago)</small>
-                  <% end %>
               </div>
               <div class="col-12">
                 <% if article.categories.any? %>
