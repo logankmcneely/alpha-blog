@@ -8,7 +8,7 @@ module ApplicationHelper
     when articles_path
       "Articles"
     else
-      "Alpha Blog"
+      "Zeta Blog"
     end
   end
   
