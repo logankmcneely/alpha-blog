@@ -1,7 +1,6 @@
 @import 'theme';
 
-#form {
-  padding: 64px 32px;
+.forms {
 
   h1 {
     color: $color-blue;
@@ -9,10 +8,10 @@
   }
 
   .form-control {
-    background-color: $color-light-tint;
+    background-color: $color-light-tint !important;
     
     &:hover {
-      border-color: $color-blue;
+      border-color: $color-blue !important;
     }
   }
 
