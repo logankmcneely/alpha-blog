@@ -1,8 +1,9 @@
 <nav class="navbar navbar-expand-md navbar-light bg-color-light border-bottom">
   <div class="container">
 
-    <%= link_to  "Alpha Blog", root_path, class: "navbar-brand", id: "logo" %>
-   
+    <%= link_to root_path, class: "navbar-brand", id: "logo" do %>
+      <span class="zeta">Zeta Blog
+    <%end %>
 
     <a id="nav-collapse-button" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <%= fa_icon "bars", class: "font-color-blue" %>
@@ -17,7 +18,7 @@
         <%# If not logged in, don't show the drop down to create an article, but allow user to view articles %>
         <% if !user_signed_in? %>
           <li class="nav-item">
-            <%= link_to  "Articles", articles_path, class: "nav-link" %>
+            <%= link_to  "Articles", articles_path, class: "nav-link #{"active" if request.path == articles_path}" %>
           </li>
 
         <%# If logged in, show the link to create a new article %>

@@ -1,4 +1,4 @@
-<h2 class="text-center pt-3 pb-3 bg-color-light font-color-red font-weight-bold shadow-sm">Bloggers</h2>
+<h2 class="text-center pt-3 pb-3 bg-color-blue font-color-light font-weight-bold shadow-lg">Bloggers</h2>
 <div class="my-4"></div>
 
 <div class="container">
@@ -6,7 +6,7 @@
     <% @users.each do |user| %>
         <div class="col-sm-10 col-md-6 col-lg-5">
 
-        <div class="card-container menu-anchor-parent bg-color-light-shade rounded shadow-sm mb-4 p-1" data-link="<%= user_path(user) %>">
+        <div class="card-container menu-anchor-parent bg-color-light-shade rounded shadow-sm mb-1 mb-sm-4 p-1" data-link="<%= user_path(user) %>">
 
           <%# Admin options %>
           <% if user_signed_in? && current_user.admin? && !user.admin %>
@@ -26,7 +26,7 @@
 
             <%# Image Section %>
             <div class="col-4">
-              <%= image_tag "#{user.image_url}", class: "category-image img-responsive" %> 
+              <%= image_tag "#{user.image_url}", class: "category-image img-responsive", onerror:'this.error=null;this.src="https://www.nacdnet.org/wp-content/uploads/2016/06/person-placeholder-300x300.jpg"' %> 
             </div>
 
 

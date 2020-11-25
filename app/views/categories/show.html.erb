@@ -1,8 +1,8 @@
-<div class="row justify-content-center pt-3 pb-3 bg-color-light shadow-sm">
-<h2 class="text-center font-color-red font-weight-bold"><%= @category.name %></h2>
+<div class="row justify-content-center bg-color-blue shadow-lg">
+<h2 class="text-center font-color-light pt-3 pb-3 mb-0 font-weight-bold"><%= @category.name %></h2>
   <% if user_signed_in? && current_user.admin? %>
     <%= link_to "#", { class: "admin-access-categories ml-3 mt-auto mb-auto dropdown-toggle options-dropdown", id:"dropdownMenuLink", role:"button", data: { toggle:"dropdown"}, aria: { haspopup:"true", expanded:"false"}}  do %>
-      <%= fa_icon "caret-down", class: "font-color-dark-red" %>
+      <%= fa_icon "caret-down", class: "font-color-light" %>
     <% end %>
     <div class="dropdown-menu shadow-lg bg-color-light">
       <%= link_to edit_category_path(@category), class: "dropdown-item" do %>

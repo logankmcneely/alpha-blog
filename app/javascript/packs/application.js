@@ -60,11 +60,11 @@ $(document).on('turbolinks:load', function () {
     })
 });
 
-// Toggle like button
+// Auto dismiss alerts after set time
 $(document).on('turbolinks:load', function () {
   window.setTimeout(function() {
     $(".message-anchor").slideUp(500, function(){
         $(this).remove(); 
     });
-}, 3000);
+  }, 3000);
 });

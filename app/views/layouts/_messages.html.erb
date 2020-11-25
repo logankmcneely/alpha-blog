@@ -1,9 +1,6 @@
 <% flash.each do |name, msg| %>
   <% alert_type = name == "notice" ? "alert-success" : "alert-danger" %>
-  <div class="message-anchor alert <%= alert_type %> alert-dismissible fade show mb-0 text-center" role="alert">
+  <div class="message-anchor alert <%= alert_type %> fade show pt-0 pb-0 mb-0 text-center" role="alert">
     <%= msg %>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
   </div>
 <% end %>

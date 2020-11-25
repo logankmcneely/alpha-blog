@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   before_action :set_user, only: [:show, :edit, :update, :destroy, :likes]
   before_action :require_user, only: [:edit, :update, :destroy]
   before_action :require_same_user, only: [:edit, :update, :destroy, :likes]

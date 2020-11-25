@@ -53,7 +53,7 @@ $(document).on('turbolinks:load', function () {
   $(".like").on('click', function (e) {
     $(this).toggleClass("liked");
   });
-}); // Toggle like button
+}); // Auto dismiss alerts after set time
 
 $(document).on('turbolinks:load', function () {
   window.setTimeout(function () {
