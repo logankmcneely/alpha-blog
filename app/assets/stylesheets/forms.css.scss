@@ -15,7 +15,11 @@
     }
   }
 
-  input[type="submit"]:hover,
+  input[type="submit"]:hover {
+    background-color: $color-red;
+    color: $color-light;
+  }
+  
   a:hover {
     border-color: none !important;
     color: $color-dark;
@@ -48,3 +52,5 @@
     border-color: $color-blue;
   }
 }
+
+

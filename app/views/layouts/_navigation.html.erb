@@ -5,7 +5,7 @@
    
 
     <a id="nav-collapse-button" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <%= fa_icon "bars", class: "font-color-red" %>
+      <%= fa_icon "bars", class: "font-color-blue" %>
     </a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -25,19 +25,19 @@
 
           <%# Expanded Articles dropdown on larger screens %>
           <li class="nav-item dropdown expanded">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle <%= "active" if request.path == articles_path || new_article_path || like_article_path %>" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Articles&nbsp;<%= fa_icon "caret-down"%>
             </a>
             <div class="dropdown-menu shadow-lg bg-color-light" aria-labelledby="navbarDropdown">
               <%= link_to articles_path, class: "dropdown-item" do %>
-                <%= fa_icon "pagelines", class:"nav-icon" %>&nbsp;&nbsp;View
+                <span class= "<%= "active" if request.path == articles_path%>"><%= fa_icon "pagelines", class:"nav-icon" %>&nbsp;&nbsp;View</span>
               <% end %>
               <% if user_signed_in? %>
                 <%= link_to "/users/#{current_user.id}/likes", class: "dropdown-item" do %>
-                  <%= fa_icon "heart", class:"nav-icon" %>&nbsp;&nbsp;Liked
+                  <span class= "<%= "active" if request.path == like_article_path %>"><%= fa_icon "heart", class:"nav-icon" %>&nbsp;&nbsp;Liked</span>
                 <% end %>
                 <%= link_to new_article_path, class: "dropdown-item" do %>
-                  <%= fa_icon "pencil", class:"nav-icon" %>&nbsp;&nbsp;Create
+                  <span class= "<%= "active" if request.path == new_article_path%>"><%= fa_icon "pencil", class:"nav-icon" %>&nbsp;&nbsp;Create</span>
                 <% end %>
               <% end %>
             </div>
@@ -45,20 +45,20 @@
 
           <%# Collapsed Articles links on smaller screens/collapsed menu %>
           <li class="nav-item collapsed">
-            <%= link_to  "Articles", articles_path, class: "nav-link" %>
+            <%= link_to  "Articles", articles_path, class: "nav-link #{"active" if request.path == articles_path}" %>
           </li>
           <li class="nav-item collapsed">
-            <%= link_to  "Liked Articles", "/users/#{current_user.id}/likes", class: "nav-link" %>
+            <%= link_to  "Liked Articles", "/users/#{current_user.id}/likes", class: "nav-link #{"active" if request.path == like_article_path}" %>
           </li>
           <li class="nav-item collapsed">
-            <%= link_to  "Create Article", new_article_path, class: "nav-link" %>
+            <%= link_to  "Create Article", new_article_path, class: "nav-link #{"active" if request.path == new_article_path}" %>
           </li>
 
         <% end %>
 
         <%# BLOGGERS SECTION %>
         <li class="nav-item">
-          <%= link_to  "Bloggers", users_path, class: "nav-link" %>
+          <%= link_to  "Bloggers", users_path, class: "nav-link #{"active" if request.path == users_path}" %>
         </li>
 
         <%# CATEGORIES SECTION %>

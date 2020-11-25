@@ -21,7 +21,7 @@
 
 
 nav .dropdown-item {
-  color: $color-dark-red !important;
+  color: $color-blue !important;
 
   &:hover,
   &:focus {
@@ -36,15 +36,17 @@ nav .dropdown-item {
   &:hover,
   &:focus,
   &:active {
-    i {
-      color: $color-red !important;
-    }
     border-color: $color-dark-red !important;
   }
 }
 
 .sign-up {
   padding: 8px;
+  color: $color-light;
+  &:hover {
+    color: $color-light;
+    background-color: $color-red;
+  }
 }
 
 .nav-icon {
@@ -53,5 +55,10 @@ nav .dropdown-item {
 }
 
 .navbar {
-  border-color: rgba(89, 28, 11, 0.10) !important;
+  border-color: rgba(0, 78, 124, 0.10) !important;
+}
+
+.active {
+  background-color: $color-light !important;
+  color: $color-red !important;
 }
