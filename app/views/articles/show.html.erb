@@ -7,7 +7,7 @@
 
 <div class="row justify-content-center">
   <div class="col-sm-11 col-lg-8 mt-md-3">
-    <div class="menu-anchor-parent mb-0 mt-0 mb-sm-4 mt-sm-4 p-5">
+    <div class="menu-anchor-parent mb-0 mt-0 mb-sm-4 mt-sm-4 pt-2 pb-5 pl-3 pr-3 p-sm-5">
 
       <%# Menu options for article owner and admin %>
       <% if user_signed_in? && (current_user == @article.user || current_user.admin?) %>
@@ -35,10 +35,7 @@
       <%# Article User %>
       <div class="row mb-1">
         <div class="col text-center card-subtitle">
-          <%= link_to @article.user, class: "col link mb-2" do %>
-            <%= image_tag "#{@article.user.image_url}", class: "thumbnail rounded-circle", onerror:'this.error=null;this.src="https://www.nacdnet.org/wp-content/uploads/2016/06/person-placeholder-300x300.jpg"' %> 
-            <span class=""><i><%= @article.user.full_name %></i></span>
-          <% end %>
+          <%= render "users/avatar", user: @article.user %>
         </div>
       </div>
 

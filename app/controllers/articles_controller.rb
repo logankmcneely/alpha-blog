@@ -24,6 +24,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @article.user = current_user
     if @article.save
+      Like.create(article_id: @article.id, user_id: @article.user.id)
       redirect_to @article
     else
       render 'new'

@@ -3,7 +3,7 @@
     <% @articles.each_with_index do |article, index| %>
       <div class="card-container menu-anchor-parent bg-color-light-shade rounded shadow-sm mb-4 p-1" data-link="<%= article_path(article) %>">
 
-        <%# Menu dropdown for allowed users %>
+        <%# Menu dropdown for allowed users (admin and author) %>
         <% if user_signed_in? && (current_user == article.user || current_user.admin?) %>
           <%= link_to "#", { class: "menu-anchor dropdown-toggle dropdown-toggle-split options-dropdown", id:"dropdownMenuLink", role:"button", data: { toggle:"dropdown"}, aria: { haspopup:"true", expanded:"false"}}  do %>
             <%= fa_icon "ellipsis-v" %>
@@ -22,20 +22,17 @@
         <div class="row no-gutters <%= "flex-row-reverse" if index.odd? %>">
 
           <%# Image Section %>
-          <%= image_tag "#{article.image_url}", class: "col-sm-5 article-image img-responsive", 
-            onerror: 'this.error=null;this.src="https://nbhc.ca/sites/default/files/styles/article/public/default_images/news-default-image%402x_0.png?itok=d03WAFvJ"' %> 
+          <%= image_tag article.image_url, class: "col-sm-5 article-image img-responsive", 
+            onerror: "this.style.display='none'" %> 
 
           <%# Info Section %>
-          <div class="article-info col-sm-7 bg-color-light-tint p-4 <%= "text-sm-right" if index.odd? %>">
+          <div class="article-info col bg-color-light-tint p-4 <%= "text-sm-right" if index.odd? && article.image_url.present? %>">
             <div class="row">
               <div class="col-12">
                 <h5 class="font-color-blue"><%= article.title %></h5>
               </div>
               <div class="col-12">
-                <%= link_to article.user, class: "col link mb-2 pl-0" do %>
-                  <%= image_tag "#{article.user.image_url}", class: "thumbnail rounded-circle", onerror:'this.error=null;this.src="https://www.nacdnet.org/wp-content/uploads/2016/06/person-placeholder-300x300.jpg"' %> 
-                  <span class=""><i><%= article.user.full_name %></i></span>
-                <% end %>
+                <%= render "users/avatar", user: article.user %>
               </div>
               <div class="col-12 font-color-dark">
                 <small><%= article.created_at.strftime("%b %-d, %Y %l:%M %P")%></small>
