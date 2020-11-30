@@ -7,13 +7,16 @@ class ArticlesController < ApplicationController
   before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def show
+    # If user signed in, find out if there is a like association between the
+    # current user and the shown article.
     if user_signed_in?
       @user_liked_id = @article.liked_by_user?(current_user.id)
     end
   end
 
   def index
-    @articles = Article.order("created_at DESC").paginate(page: params[:page], per_page: 5)
+    # Articles index shows all articles in order of most recently created
+    @articles = Article.order("created_at DESC").paginate(page: params[:page], per_page: 10)
   end
 
   def new
@@ -24,6 +27,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @article.user = current_user
     if @article.save
+      # On article create, have the user's creator auto-like their own article
       Like.create(article_id: @article.id, user_id: @article.user.id)
       redirect_to @article
     else
@@ -48,7 +52,7 @@ class ArticlesController < ApplicationController
   end
 
   def like
-    # Toggles like status. If like already existed, delete it, else create a new like
+    # Toggles like status. If like already exists, delete it, else create a new like
     like_status = Article.find(params[:article_id]).liked_by_user?(params[:user_id])
     if like_status
       Like.find(like_status).destroy

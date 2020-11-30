@@ -133,3 +133,18 @@
 .avatar-name {
   font-size: 0.85em;
 }
+
+// Anchor classes for options menu on cards
+.message-parent {
+  position: relative;
+}
+
+.message-anchor {
+  position: absolute;
+  width: 100%;
+  line-height: 72px;
+  top: 66px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 0;
+}

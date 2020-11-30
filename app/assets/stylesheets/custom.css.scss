@@ -20,17 +20,3 @@ h1, h2, h3, h4, h5, h6 {
   flex: 1 0 auto;
   background-color: $color-light;
 }
-
-.message-parent {
-  position: relative;
-}
-
-.message-anchor {
-  position: absolute;
-  width: 100%;
-  line-height: 72px;
-  top: 66px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 0;
-}
