@@ -5,7 +5,7 @@ This is a blogging application hosted at https://mcneely-zeta-blog.herokuapp.com
 
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 orderedList:0 -->
 [Setup](#setup)  
-[Built With](#built-with)  
+[Built Using](#built-with)  
 <!-- /TOC -->
 
 ### Create, Read, and Like Articles.  
@@ -27,7 +27,20 @@ This is a blogging application hosted at https://mcneely-zeta-blog.herokuapp.com
 ![Responsive Design](/images/img6.png "Responsive Design")  
   
   
-### Setup
+### Setup  
+- Clone repo.  
+- In root folder run 
+```
+bundle
+```  
+- Then run  
+```
+rails db:migrate
+```  
+- And finally run  
+```
+rails s
+```  
   
 #### Built Using
 
