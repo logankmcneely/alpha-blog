@@ -18,7 +18,7 @@ This is a blogging application hosted at https://mcneely-zeta-blog.herokuapp.com
   
   
 ### Responsive Design for Mobile
-![Find Bloggers](/images/img5.png "Find Bloggers") 
+![Find Bloggers](/images/img5.png "Find Bloggers")  
 ![Responsive Design](/images/img6.png "Responsive Design")  
   
   
