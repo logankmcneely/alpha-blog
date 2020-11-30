@@ -5,20 +5,21 @@ This is a blogging application hosted at https://mcneely-zeta-blog.herokuapp.com
 
 &nbsp;  
   
-#### Create, read, and like articles.
+#### Create, Read, and Like Articles.  
 ![Find Articles](/images/img1.png "Look at articles") ![Read Articles](/images/img2.png "Read Articles")  
-
-
-#### Find Articles by Categories
-![Search Categories](/images/img3.png "Search Categories") ![Look at Articles in Category](/images/img2.png "Look at Articles in Category")   
   
   
-#### Like and Refer to Your Liked Articles
+#### Find Articles by Categories  
+![Search Categories](/images/img3.png "Search Categories") ![Look at Articles in Category](/images/img2.png "Look at Articles in Category")  
+    
+  
+#### Like and Refer to Your Liked Articles  
 ![Liked Articles](/images/img7.png "Search Categories")  
   
   
 #### Responsive Design for Mobile
-![Find Bloggers](/images/img5.png "Find Bloggers")  ![Responsive Design](/images/img6.png "Responsive Design")
+![Find Bloggers](/images/img5.png "Find Bloggers") ![Responsive Design](/images/img6.png "Responsive Design")  
+  
   
 #### Built Using
 
