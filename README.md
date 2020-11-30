@@ -4,11 +4,13 @@ This is a blogging application hosted at https://mcneely-zeta-blog.herokuapp.com
 > Please be aware that the application may be in Heroku's sleep mode and initial loading of the page may take a moment.  
 &nbsp;  
 #### Create, Read, and Like Articles.  
-![Find Articles](/images/img1.png "Look at articles") ![Read Articles](/images/img2.png "Read Articles")  
+![Find Articles](/images/img1.png "Look at articles")  
+![Read Articles](/images/img2.png "Read Articles")  
   
   
 #### Find Articles by Categories  
-![Search Categories](/images/img3.png "Search Categories") ![Look at Articles in Category](/images/img4.png "Look at Articles in Category")  
+![Search Categories](/images/img3.png "Search Categories")  
+![Look at Articles in Category](/images/img4.png "Look at Articles in Category")  
     
   
 #### Like and Refer to Your Liked Articles  
@@ -16,7 +18,8 @@ This is a blogging application hosted at https://mcneely-zeta-blog.herokuapp.com
   
   
 #### Responsive Design for Mobile
-![Find Bloggers](/images/img5.png "Find Bloggers") ![Responsive Design](/images/img6.png "Responsive Design")  
+![Find Bloggers](/images/img5.png "Find Bloggers") 
+![Responsive Design](/images/img6.png "Responsive Design")  
   
   
 #### Built Using
