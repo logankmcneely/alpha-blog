@@ -22,12 +22,7 @@ require("channels"); // Uncomment to copy all static images under ../images to t
 
 require("trix");
 
-require("@rails/actiontext"); // Disable image uploads in Action Text
-// window.addEventListener("trix-file-accept", function(event) {
-//   event.preventDefault()
-//   alert("File attachment not supported!")
-// })
-// External links open in new tab
+require("@rails/actiontext"); // External links open in new tab
 
 
 $(document).on('turbolinks:load', function () {
