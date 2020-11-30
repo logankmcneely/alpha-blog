@@ -3,10 +3,8 @@
 This is a blogging application hosted at https://mcneely-zeta-blog.herokuapp.com/
 > Please be aware that the application may be in Heroku's sleep mode and initial loading of the page may take a moment.  
 
-<!-- TOC depthFrom:1 depthTo:6 withLinks:1 orderedList:0 -->
 [Setup](#setup)  
 [Built Using](#built-using)  
-<!-- /TOC -->
 
 ### Create, Read, and Like Articles.  
 ![Find Articles](/images/img1.png "Look at articles")  
