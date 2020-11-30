@@ -2,7 +2,6 @@
 
 This is a blogging application hosted at https://mcneely-zeta-blog.herokuapp.com/
 > Please be aware that the application may be in Heroku's sleep mode and initial loading of the page may take a moment.  
-
 &nbsp;  
 #### Create, Read, and Like Articles.  
 ![Find Articles](/images/img1.png "Look at articles") ![Read Articles](/images/img2.png "Read Articles")  
