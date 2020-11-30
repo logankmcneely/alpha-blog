@@ -9,7 +9,7 @@ This is a blogging application hosted at https://mcneely-zeta-blog.herokuapp.com
   
   
 #### Find Articles by Categories  
-![Search Categories](/images/img3.png "Search Categories") ![Look at Articles in Category](/images/img2.png "Look at Articles in Category")  
+![Search Categories](/images/img3.png "Search Categories") ![Look at Articles in Category](/images/img4.png "Look at Articles in Category")  
     
   
 #### Like and Refer to Your Liked Articles  
