@@ -1,4 +1,4 @@
 <%= link_to user, class: "col link mb-2 pl-0" do %>
-  <%= image_tag "#{user.image_url}", class: "thumbnail rounded-circle", onerror:'this.error=null;this.src="https://www.nacdnet.org/wp-content/uploads/2016/06/person-placeholder-300x300.jpg"' %> 
-  <span class=""><i><%= user.full_name %></i></span>
+  <%= image_tag "#{user.image_url}", class: "avatar-thumbnail rounded-circle", onerror:'this.error=null;this.src="https://www.nacdnet.org/wp-content/uploads/2016/06/person-placeholder-300x300.jpg"' %> 
+  <span class="avatar-name"><i><%= user.full_name %></i></span>
 <% end %>

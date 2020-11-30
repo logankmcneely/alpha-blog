@@ -35,7 +35,7 @@
                 <%= render "users/avatar", user: article.user %>
               </div>
               <div class="col-12 font-color-dark">
-                <small><%= article.created_at.strftime("%b %-d, %Y %l:%M %P")%></small>
+                <small><%= article.created_at.strftime("%b %-d, %Y | %l:%M %P")%></small>
               </div>
               <div class="col-12">
                 <% if article.categories.any? %>

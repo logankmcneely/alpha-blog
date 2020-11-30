@@ -7,7 +7,7 @@
 
 <div class="row justify-content-center">
   <div class="col-sm-11 col-lg-8 mt-md-3">
-    <div class="menu-anchor-parent mb-0 mt-0 mb-sm-4 mt-sm-4 pt-2 pb-5 pl-3 pr-3 p-sm-5">
+    <div class="menu-anchor-parent mb-0 mt-0 mb-sm-4 mt-sm-2 pt-2 pb-5 pl-3 pr-3 p-sm-5">
 
       <%# Menu options for article owner and admin %>
       <% if user_signed_in? && (current_user == @article.user || current_user.admin?) %>
@@ -28,7 +28,7 @@
       <%# Article Title %>
       <div class="row">
         <div class="col">
-          <h1 class="card-title text-center font-weight-boldest mb-2 mt-4"><%= @article.title %></h1>
+          <h1 class="card-title text-center font-weight-boldest mb-4 mt-4"><%= @article.title %></h1>
         </div>
       </div>
 
@@ -41,10 +41,11 @@
 
       <%# Article Date %>
       <div class="row mb-2">
-        <div class="col text-center font-italic card-subtitle">
-          <small><%= @article.created_at.strftime("%b %-d, %Y %l:%M %P")%></small>
+        <div class="col text-center card-subtitle">
+          <small><%= @article.created_at.strftime("%b %-d, %Y | %l:%M %P")%></small>
           <% if @article.created_at != @article.updated_at %>
-            <small>(updated <%= distance_of_time_in_words_to_now(@article.updated_at)%> ago)</small>
+            <br/>
+            <small class="font-italic">(updated <%= distance_of_time_in_words_to_now(@article.updated_at)%> ago)</small>
           <% end %>
         </div>
       </div>
