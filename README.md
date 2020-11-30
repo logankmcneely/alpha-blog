@@ -30,17 +30,18 @@ This is a blogging application hosted at https://mcneely-zeta-blog.herokuapp.com
 ### Setup  
 - Clone repo.  
 - In the project's root folder run:  
-```
+  ```
 bundle
 ```  
 - Then run:   
-```
+  ```
 rails db:migrate
 ```  
 - And finally run:    
-```
+  ```
 rails s
 ```  
+  
   
 #### Built Using
 
