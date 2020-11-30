@@ -1,5 +1,7 @@
 <div class="row justify-content-center bg-color-blue shadow-lg">
-<h2 class="text-center font-color-light pt-3 pb-3 mb-0 font-weight-bold"><%= @category.name %></h2>
+  <h2 class="text-center font-color-light pt-3 pb-3 mb-0 font-weight-bold"><%= @category.name %></h2>
+
+  <%# If admin show options dropdown for category %>
   <% if user_signed_in? && current_user.admin? %>
     <%= link_to "#", { class: "admin-access-categories ml-3 mt-auto mb-auto dropdown-toggle options-dropdown", id:"dropdownMenuLink", role:"button", data: { toggle:"dropdown"}, aria: { haspopup:"true", expanded:"false"}}  do %>
       <%= fa_icon "caret-down", class: "font-color-light" %>
@@ -14,16 +16,15 @@
       <% end %>
     </div>
   <% end %>
+
 </div>
 
 <% if @category.articles.count > 0 %>
-  <%= render 'shared/pagination', obj: @articles  %>
   <div class="my-4"></div>
   <%= render 'articles/article' %>
   <div class="my-4"></div>
   <%= render 'shared/pagination', obj: @articles  %>
   <div class="my-5"></div>
 <% else %>
-
   <h5 class="text-center font-italic font-weight-light mt-5">This category has no articles at this time.</h5>
 <% end %>
