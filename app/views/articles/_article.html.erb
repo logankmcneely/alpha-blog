@@ -1,54 +1,56 @@
-<div class="row justify-content-center ml-md-5 mr-md-5">
-  <div class="col-sm-11 col-lg-8">
-    <% @articles.each_with_index do |article, index| %>
-      <div class="card-container menu-anchor-parent bg-color-light-shade rounded shadow-sm mb-4 p-1" data-link="<%= article_path(article) %>">
+<div class="container">
+  <div class="row justify-content-center ml-md-5 mr-md-5">
+    <div class="col-sm-11 col-lg-8">
+      <% @articles.each_with_index do |article, index| %>
+        <div class="card-container menu-anchor-parent bg-color-light-shade rounded shadow-sm mb-4 p-1" data-link="<%= article_path(article) %>">
 
-        <%# Menu dropdown for allowed users (admin and author) %>
-        <% if user_signed_in? && (current_user == article.user || current_user.admin?) %>
-          <%= link_to "#", { class: "menu-anchor dropdown-toggle dropdown-toggle-split options-dropdown", id:"dropdownMenuLink", role:"button", data: { toggle:"dropdown"}, aria: { haspopup:"true", expanded:"false"}}  do %>
-            <%= fa_icon "ellipsis-v" %>
-          <% end %>
-          <div class="dropdown-menu shadow-lg dropdown-menu-right bg-color-light">
-              <%= link_to edit_article_path(article), class: "dropdown-item" do %>
-                <%= fa_icon "edit", class: "menu-icon" %>&nbsp;Edit
-              <% end %>
-              <%= link_to article_path(article), method: :delete, class: "dropdown-item",
-                data: { confirm: "Are you sure you want to delete the article '#{article.title}'?" } do %>
-                <%= fa_icon "trash", class: "menu-icon" %>&nbsp;Delete
-              <% end %>
-          </div>
-        <% end %>
-
-        <div class="row no-gutters <%= "flex-row-reverse" if index.odd? %>">
-
-          <%# Image Section %>
-          <%= image_tag article.image_url, class: "col-sm-5 article-image img-responsive", 
-            onerror: "this.style.display='none'" %> 
-
-          <%# Info Section %>
-          <div class="article-info col bg-color-light-tint p-4 <%= "text-sm-right" if index.odd? && article.image_url.present? %>">
-            <div class="row">
-              <div class="col-12">
-                <h5 class="font-color-blue"><%= article.title %></h5>
-              </div>
-              <div class="col-12">
-                <%= render "users/avatar", user: article.user %>
-              </div>
-              <div class="col-12 font-color-dark">
-                <small><%= article.created_at.strftime("%b %-d, %Y | %l:%M %P")%></small>
-              </div>
-              <div class="col-12">
-                <% if article.categories.any? %>
-                  <%= render article.categories %>
+          <%# Menu dropdown for allowed users (admin and author) %>
+          <% if user_signed_in? && (current_user == article.user || current_user.admin?) %>
+            <%= link_to "#", { class: "menu-anchor dropdown-toggle dropdown-toggle-split options-dropdown", id:"dropdownMenuLink", role:"button", data: { toggle:"dropdown"}, aria: { haspopup:"true", expanded:"false"}}  do %>
+              <%= fa_icon "ellipsis-v" %>
+            <% end %>
+            <div class="dropdown-menu shadow-lg dropdown-menu-right bg-color-light">
+                <%= link_to edit_article_path(article), class: "dropdown-item" do %>
+                  <%= fa_icon "edit", class: "menu-icon" %>&nbsp;Edit
                 <% end %>
-              </div>
+                <%= link_to article_path(article), method: :delete, class: "dropdown-item",
+                  data: { confirm: "Are you sure you want to delete the article '#{article.title}'?" } do %>
+                  <%= fa_icon "trash", class: "menu-icon" %>&nbsp;Delete
+                <% end %>
             </div>
+          <% end %>
 
+          <div class="row no-gutters <%= "flex-row-reverse" if index.odd? %>">
+
+            <%# Image Section %>
+            <%= image_tag article.image_url, class: "col-sm-5 article-image img-responsive", 
+              onerror: "this.style.display='none'" %> 
+
+            <%# Info Section %>
+            <div class="article-info col bg-color-light-tint p-4 <%= "text-sm-right" if index.odd? && article.image_url.present? %>">
+              <div class="row">
+                <div class="col-12">
+                  <h5 class="font-color-blue"><%= article.title %></h5>
+                </div>
+                <div class="col-12">
+                  <%= render "users/avatar", user: article.user %>
+                </div>
+                <div class="col-12 font-color-dark">
+                  <small><%= article.created_at.strftime("%b %-d, %Y | %l:%M %P")%></small>
+                </div>
+                <div class="col-12">
+                  <% if article.categories.any? %>
+                    <%= render article.categories %>
+                  <% end %>
+                </div>
+              </div>
+
+            </div>
           </div>
+
+
         </div>
-
-
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
