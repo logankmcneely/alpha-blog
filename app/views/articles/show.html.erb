@@ -71,6 +71,11 @@
         </div>
       <% end %>
 
+      <%# Article Comments %>
+      <% if user_signed_in? %>
+        <%= render "comment_form" %>
+      <% end %>
+
     </div>
   </div>
 </div>

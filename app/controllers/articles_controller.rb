@@ -61,6 +61,14 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def comment
+    @comment = ArticleMessage.new(user_id: current_user.id, article_id: params[:id], body: params[:body])
+    if @comment.save
+      redirect_to article_path(params[:id])
+    end
+    
+  end
+
   private
 
   def set_article
