@@ -56,6 +56,8 @@
           <%= render @article.categories %>
         </div>
       <% end %>
+
+      <%# Article Body %>
       <div class="row mt-5 mb-5">
         <div class="col article-show-description">
           <%= @article.description %>
@@ -72,6 +74,16 @@
       <% end %>
 
       <%# Article Comments %>
+
+      <% if @article.article_messages.count > 0 %>
+        <% @article.article_messages.each do |message| %>
+          <div class="col article-show-description">
+            <%= message.body %>
+          </div>
+        <% end %>
+      <% end %>
+
+      <%# Article New Comment %>
       <% if user_signed_in? %>
         <%= render "comment_form" %>
       <% end %>
